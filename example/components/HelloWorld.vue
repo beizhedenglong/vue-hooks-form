@@ -7,17 +7,18 @@
       type="text"
       :ref="nameField.ref"
       v-model="nameField.value"
+      v-if="state.visible"
     >
     <button @click="add">
       add
     </button>
-    <TestInput v-model="nameField.value" ></TestInput>
+    <TestInput v-if="state.visible" v-model="ageField.value" :ref="ageField.ref"></TestInput>
   </div>
 </template>
 
 <script lang="tsx">
 import {
-  defineComponent, ref,
+  defineComponent, ref, reactive, onMounted,
 } from 'vue'
 import { useForm } from '../../src'
 import TestInput from './TestInput.vue'
@@ -31,21 +32,28 @@ export default defineComponent({
     msg: String,
   },
   setup() {
-    const { values, register, setValue } = useForm({
+    const {
+      values, register, fieldsRef, getFieldValues,
+    } = useForm({
       initialValues: { name: 'wang', age: 1, display: true },
+      shouldUnregister: true,
     })
-    const inputRef = ref(null)
+    const state = reactive({ visible: true })
 
     const nameField = register('name')
+    const ageField = register('age')
+    onMounted(() => {
+      setTimeout(() => { state.visible = false }, 4000)
+    })
 
     return {
       values,
       nameField,
-      inputRef,
       add: () => {
-        console.log(nameField.ref)
+        console.log(getFieldValues())
       },
-      handleTestInput: (v: any) => (console.log('-----', v)),
+      ageField,
+      state,
     }
   },
 })

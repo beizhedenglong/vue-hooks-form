@@ -1,26 +1,29 @@
 <template>
     <input
       type="text"
-      :value="test"
+      :value="modelValue"
       @input=" e => {
         e.stopPropagation()
         e.preventDefault()
-        $emit('input', e.target.value)
+        $emit('update:modelValue', e.target.value)
       }"
     >
 </template>
 
 <script lang="ts">
 import {
-  defineComponent, ref,
+  defineComponent, ref, onMounted,
 } from 'vue'
 
 export default defineComponent({
   name: 'TestInput',
   components: {
   },
+  setup(context, props) {
+    onMounted(() => console.log(props.attrs))
+  },
   props: {
-    test: String,
+    modelValue: String,
   },
 })
 </script>
