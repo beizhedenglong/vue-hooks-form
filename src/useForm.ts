@@ -1,7 +1,9 @@
 import {
   reactive, computed, ref, Ref,
 } from 'vue'
-import { isAllUnmounted } from './utils'
+import {
+  isAllUnmounted, get, set, toPathString,
+} from './utils'
 
 export type FormConfig<Values extends object> = {
   initialValues?: Values;
@@ -14,19 +16,21 @@ export const useForm = <T extends object>({
 }: FormConfig<T>) => {
   const fieldsRef = ref<{ [key: string]: Set<Ref<HTMLElement | null>> }>({})
   const fieldValues = reactive(initialValues) as any
-  const register = (path: string) => {
+  const register = (path: string | (string | number)[]) => {
+    const pathStr = toPathString(path)
     const fieldRef = ref<HTMLElement | null>(null)
     const value = computed({
-      get: () => fieldValues[path],
+      get: () => get(fieldValues, pathStr),
       set: (newValue) => {
-        fieldValues[path] = newValue
+        console.log(newValue)
+        set(fieldValues, pathStr, newValue)
       },
     })
     const getRef = (nodeRef: HTMLElement) => {
       fieldRef.value = nodeRef
-      const nodeSet = fieldsRef.value[path] || new Set()
+      const nodeSet = fieldsRef.value[pathStr] || new Set()
       nodeSet.add(fieldRef)
-      fieldsRef.value[path] = nodeSet
+      fieldsRef.value[pathStr] = nodeSet
     }
     return reactive({
       ref: getRef,
@@ -35,7 +39,7 @@ export const useForm = <T extends object>({
   }
 
   const setValue = (path: string, value: any) => {
-    fieldValues[path] = value
+    set(fieldValues, path, value)
   }
 
   return reactive({

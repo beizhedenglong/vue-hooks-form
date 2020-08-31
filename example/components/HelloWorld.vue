@@ -13,6 +13,10 @@
       add
     </button>
     <TestInput v-if="state.visible" v-model="ageField.value" :ref="ageField.ref"></TestInput>
+    <input
+      type="email"
+      v-model="emailField.value" :ref="emailField.ref"
+    >
   </div>
 </template>
 
@@ -35,13 +39,21 @@ export default defineComponent({
     const {
       values, register, fieldsRef, getFieldValues,
     } = useForm({
-      initialValues: { name: 'wang', age: 1, display: true },
+      initialValues: {
+        name: 'wang',
+        age: 1,
+        display: true,
+        info: {
+          email: 'hello@example.com',
+        },
+      },
       shouldUnregister: true,
     })
     const state = reactive({ visible: true })
 
     const nameField = register('name')
     const ageField = register('age')
+    const emailField = register('info.email')
     onMounted(() => {
       setTimeout(() => { state.visible = false }, 4000)
     })
@@ -53,6 +65,7 @@ export default defineComponent({
         console.log(getFieldValues())
       },
       ageField,
+      emailField,
       state,
     }
   },
