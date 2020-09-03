@@ -45,19 +45,17 @@ export const useForm = <T extends object>({
     values: fieldValues as T,
     register,
     setValue,
-    fieldsRef,
-    getFieldValues: () => {
+    getFieldValues: () => Object.keys(fieldsRef.value).reduce((acc, path) => {
+      const value = get(fieldValues, path)
       if (!shouldUnregister) {
-        return toRaw(fieldValues)
-      }
-      return Object.keys(fieldsRef.value).reduce((acc, path) => {
-        if (!isAllUnmounted(fieldsRef.value[path])) {
-          const value = get(fieldValues, path)
-          set(acc, path, value)
-          return acc
-        }
+        set(acc, path, value)
         return acc
-      }, {})
-    },
+      }
+      if (!isAllUnmounted(fieldsRef.value[path]) && shouldUnregister) {
+        set(acc, path, value)
+        return acc
+      }
+      return acc
+    }, {}),
   })
 }

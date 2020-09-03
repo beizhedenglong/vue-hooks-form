@@ -37,7 +37,7 @@ export default defineComponent({
   },
   setup() {
     const {
-      values, register, fieldsRef, getFieldValues,
+      values, register, getFieldValues,
     } = useForm({
       initialValues: {
         name: 'wang',
@@ -47,7 +47,6 @@ export default defineComponent({
           email: 'hello@example.com',
         },
       },
-      shouldUnregister: true,
     })
     const state = reactive({ visible: true })
 
