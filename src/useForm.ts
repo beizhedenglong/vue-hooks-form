@@ -22,7 +22,6 @@ export const useForm = <T extends object>({
     const value = computed({
       get: () => get(fieldValues, pathStr),
       set: (newValue) => {
-        console.log(newValue)
         set(fieldValues, pathStr, newValue)
       },
     })
@@ -47,17 +46,18 @@ export const useForm = <T extends object>({
     register,
     setValue,
     fieldsRef,
-    getFieldValues: () => Object.keys(fieldValues).reduce((acc, key) => {
-      // 注意这里原始数据的增删
-      // 1. 只保留表单里的数据还是咋样
-      if (isAllUnmounted(fieldsRef.value[key]) && shouldUnregister) {
-        return acc
+    getFieldValues: () => {
+      if (!shouldUnregister) {
+        return fieldValues
       }
-      if (fieldsRef.value[key] === undefined) {
+      return Object.keys(fieldsRef.value).reduce((acc, path) => {
+        if (!isAllUnmounted(fieldsRef.value[path])) {
+          const value = get(fieldValues, path)
+          set(acc, path, value)
+          return acc
+        }
         return acc
-      }
-      acc[key] = fieldValues[key]
-      return acc
-    }, {} as any),
+      }, {})
+    },
   })
 }
