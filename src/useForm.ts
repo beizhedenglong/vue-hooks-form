@@ -1,5 +1,5 @@
 import {
-  reactive, computed, ref, Ref,
+  reactive, computed, ref, Ref, toRaw,
 } from 'vue'
 import {
   isAllUnmounted, get, set, toPathString,
@@ -48,7 +48,7 @@ export const useForm = <T extends object>({
     fieldsRef,
     getFieldValues: () => {
       if (!shouldUnregister) {
-        return fieldValues
+        return toRaw(fieldValues)
       }
       return Object.keys(fieldsRef.value).reduce((acc, path) => {
         if (!isAllUnmounted(fieldsRef.value[path])) {
