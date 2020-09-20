@@ -1,24 +1,36 @@
 import {
-  reactive, computed, ref, Ref, toRaw,
+  reactive, computed, ref, Ref,
 } from 'vue'
+import { RuleItem } from 'async-validator'
+import DeepValidator from './deepValidator'
 import {
   isAllUnmounted, get, set, toPathString,
 } from './utils'
 
-export type FormConfig<Values extends object> = {
-  initialValues?: Values;
+export type FormOptions<Values extends object> = {
+  defaultValues?: Values;
   shouldUnregister?: boolean;
 }
 
+export type FieldOptions = {
+  rule?: RuleItem;
+}
+
 export const useForm = <T extends object>({
-  initialValues = {} as T,
+  defaultValues = {} as T,
   shouldUnregister = true,
-}: FormConfig<T>) => {
+}: FormOptions<T>) => {
+  const validator = DeepValidator({})
   const fieldsRef = ref<{ [key: string]: Set<Ref<HTMLElement | null>> }>({})
-  const fieldValues = reactive(initialValues) as any
-  const register = (path: string | (string | number)[]) => {
+  const fieldValues = reactive(defaultValues) as any
+
+  const register = (path: string | (string | number)[], options: FieldOptions = {}) => {
     const pathStr = toPathString(path)
     const fieldRef = ref<HTMLElement | null>(null)
+    const { rule } = options
+    if (rule) {
+      validator.registerRule(pathStr, rule)
+    }
     const value = computed({
       get: () => get(fieldValues, pathStr),
       set: (newValue) => {
@@ -41,21 +53,24 @@ export const useForm = <T extends object>({
     set(fieldValues, path, value)
   }
 
+  const getFieldValues = () => Object.keys(fieldsRef.value).reduce((acc, path) => {
+    const value = get(fieldValues, path)
+    if (!shouldUnregister) {
+      set(acc, path, value)
+      return acc
+    }
+    if (!isAllUnmounted(fieldsRef.value[path])) {
+      set(acc, path, value)
+      return acc
+    }
+    return acc
+  }, {})
+  const validate = () => validator.validate(getFieldValues())
   return reactive({
     values: fieldValues as T,
     register,
     setValue,
-    getFieldValues: () => Object.keys(fieldsRef.value).reduce((acc, path) => {
-      const value = get(fieldValues, path)
-      if (!shouldUnregister) {
-        set(acc, path, value)
-        return acc
-      }
-      if (!isAllUnmounted(fieldsRef.value[path]) && shouldUnregister) {
-        set(acc, path, value)
-        return acc
-      }
-      return acc
-    }, {}),
+    getFieldValues,
+    validate,
   })
 }

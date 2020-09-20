@@ -19,9 +19,6 @@ export default defineComponent({
   name: 'TestInput',
   components: {
   },
-  setup(context, props) {
-    onMounted(() => console.log(props.attrs))
-  },
   props: {
     modelValue: String,
   },

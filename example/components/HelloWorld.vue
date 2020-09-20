@@ -9,14 +9,14 @@
       v-model="nameField.value"
       v-if="state.visible"
     >
-    <button @click="add">
-      add
-    </button>
     <TestInput v-if="state.visible" v-model="ageField.value" :ref="ageField.ref"></TestInput>
     <input
       type="email"
       v-model="emailField.value" :ref="emailField.ref"
     >
+    <button @click="submit">
+      submit
+    </button>
   </div>
 </template>
 
@@ -38,8 +38,9 @@ export default defineComponent({
   setup() {
     const {
       values, register, getFieldValues,
+      validate,
     } = useForm({
-      initialValues: {
+      defaultValues: {
         name: 'wang',
         age: 1,
         display: true,
@@ -50,18 +51,22 @@ export default defineComponent({
     })
     const state = reactive({ visible: true })
 
-    const nameField = register('name')
+    const nameField = register('name', {
+      rule: { required: true },
+    })
     const ageField = register('age')
-    const emailField = register('info.email')
+    const emailField = register('info.email', {
+      rule: { required: true, type: 'email' },
+    })
     onMounted(() => {
-      setTimeout(() => { state.visible = false }, 4000)
+      // setTimeout(() => { state.visible = false }, 4000)
     })
 
     return {
       values,
       nameField,
-      add: () => {
-        console.log(getFieldValues())
+      submit: async () => {
+        await validate()
       },
       ageField,
       emailField,
