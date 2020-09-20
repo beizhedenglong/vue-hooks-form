@@ -37,7 +37,7 @@ export default defineComponent({
   },
   setup() {
     const {
-      values, register, getFieldValues,
+      values, useField, getFieldValues,
       validate,
     } = useForm({
       defaultValues: {
@@ -51,11 +51,13 @@ export default defineComponent({
     })
     const state = reactive({ visible: true })
 
-    const nameField = register('name', {
-      rule: { required: true },
+    const nameField = useField('name', {
+      rule: { required: true, message: 'name is required' },
     })
-    const ageField = register('age')
-    const emailField = register('info.email', {
+    const ageField = useField('age', {
+      rule: { type: 'number' },
+    })
+    const emailField = useField('info.email', {
       rule: { required: true, type: 'email' },
     })
     onMounted(() => {
@@ -66,7 +68,11 @@ export default defineComponent({
       values,
       nameField,
       submit: async () => {
-        await validate()
+        try {
+          await validate()
+        } catch ({ error, fields }) {
+          console.log(error, fields)
+        }
       },
       ageField,
       emailField,

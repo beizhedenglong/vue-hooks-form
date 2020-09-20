@@ -24,7 +24,7 @@ export const useForm = <T extends object>({
   const fieldsRef = ref<{ [key: string]: Set<Ref<HTMLElement | null>> }>({})
   const fieldValues = reactive(defaultValues) as any
 
-  const register = (path: string | (string | number)[], options: FieldOptions = {}) => {
+  const useField = (path: string | (string | number)[], options: FieldOptions = {}) => {
     const pathStr = toPathString(path)
     const fieldRef = ref<HTMLElement | null>(null)
     const { rule } = options
@@ -66,9 +66,10 @@ export const useForm = <T extends object>({
     return acc
   }, {})
   const validate = () => validator.validate(getFieldValues())
+
   return reactive({
     values: fieldValues as T,
-    register,
+    useField,
     setValue,
     getFieldValues,
     validate,
