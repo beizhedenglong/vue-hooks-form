@@ -43,7 +43,6 @@ export default defineComponent({
       defaultValues: {
         name: 'wang',
         age: 1,
-        display: true,
         info: {
           email: 'hello@example.com',
         },

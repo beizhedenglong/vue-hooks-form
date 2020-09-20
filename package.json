@@ -17,7 +17,7 @@
     "lodash.set": "^4.3.2",
     "lodash.setwith": "^4.3.2",
     "lodash.topath": "^4.5.2",
-    "vue": "^3.0.0-rc.8"
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.19",

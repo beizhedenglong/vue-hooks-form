@@ -3,4 +3,9 @@ module.exports = {
   transform: {
     '^.+\\.vue$': 'vue-jest',
   },
-};
+  // globals: {
+  //   'ts-jest': {
+  //     diagnostics: false,
+  //   },
+  // },
+}
