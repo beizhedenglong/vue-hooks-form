@@ -38,7 +38,7 @@ export default defineComponent({
   setup() {
     const {
       values, useField, getFieldValues,
-      validate,
+      validate, validateField,
     } = useForm({
       defaultValues: {
         name: 'wang',
@@ -68,7 +68,9 @@ export default defineComponent({
       nameField,
       submit: async () => {
         try {
-          await validate()
+          // await validate()
+          await validateField('info.email')
+          await validateField('name')
         } catch ({ error, fields }) {
           console.log(error, fields)
         }

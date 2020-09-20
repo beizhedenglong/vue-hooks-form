@@ -67,11 +67,14 @@ export const useForm = <T extends object>({
   }, {})
   const validate = () => validator.validate(getFieldValues())
 
+  const validateField = (path: any) => validator.validateField(path, get(fieldValues, path))
+
   return reactive({
     values: fieldValues as T,
     useField,
     setValue,
     getFieldValues,
     validate,
+    validateField,
   })
 }
