@@ -2,7 +2,7 @@ import {
   reactive, computed, ref, Ref,
 } from 'vue'
 import { RuleItem } from 'async-validator'
-import DeepValidator from './deepValidator'
+import DeepValidator from './DeepValidator'
 import {
   isAllUnmounted, get, set, toPathString,
 } from './utils'
@@ -49,11 +49,8 @@ export const useForm = <T extends object>({
     })
   }
 
-  const setValue = (path: string, value: any) => {
-    set(fieldValues, path, value)
-  }
-
   const getFieldValues = () => Object.keys(fieldsRef.value).reduce((acc, path) => {
+    // only return fields that exit on page
     const value = get(fieldValues, path)
     if (!shouldUnregister) {
       set(acc, path, value)
@@ -72,9 +69,15 @@ export const useForm = <T extends object>({
   return reactive({
     values: fieldValues as T,
     useField,
-    setValue,
+    get: (path: string, defaultValue: any) => {
+      get(fieldValues, path, defaultValue)
+    },
+    set: (path: string, value: any) => {
+      set(fieldValues, path, value)
+    },
     getFieldValues,
     validate,
     validateField,
+    // TODO return errors notice that error of every field could be an array
   })
 }

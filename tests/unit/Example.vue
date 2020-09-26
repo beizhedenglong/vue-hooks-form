@@ -1,15 +1,12 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    {{values.name}}
-    {{nameField.value}}
+  <div>
     <input
       type="text"
       :ref="nameField.ref"
       v-model="nameField.value"
-      v-if="state.visible"
+      id="name"
     >
-    <TestInput v-if="state.visible" v-model="ageField.value" :ref="ageField.ref"></TestInput>
+    <input type="text" :ref="ageField.ref" v-model="ageField.value">
     <input
       type="email"
       v-model="emailField.value" :ref="emailField.ref"
@@ -25,29 +22,17 @@ import {
   defineComponent, ref, reactive, onMounted,
 } from 'vue'
 import { useForm } from '../../src'
-import TestInput from './TestInput.vue'
 
 export default defineComponent({
-  name: 'HelloWorld',
-  components: {
-    TestInput,
-  },
+  name: 'Example',
   props: {
-    msg: String,
+    defaultValues: { type: Object },
   },
-  setup() {
+  setup(props) {
     const {
       values, useField, getFieldValues,
       validate, validateField,
-    } = useForm({
-      defaultValues: {
-        name: 'wang',
-        age: 1,
-        info: {
-          email: 'hello@example.com',
-        },
-      },
-    })
+    } = useForm({ defaultValues: props.defaultValues })
     const state = reactive({ visible: true })
 
     const nameField = useField('name', {
@@ -66,15 +51,11 @@ export default defineComponent({
     const emailField = useField('info.email', {
       rule: { required: true, type: 'email' },
     })
-    onMounted(() => {
-      // setTimeout(() => { state.visible = false }, 4000)
-    })
 
     return {
       values,
       nameField,
       submit: async () => {
-        console.log(values, getFieldValues())
         try {
           await validate()
         } catch ({ errors, fields }) {
@@ -84,6 +65,9 @@ export default defineComponent({
       ageField,
       emailField,
       state,
+      validate,
+      validateField,
+      getFieldValues,
     }
   },
 })
