@@ -15,6 +15,14 @@ export type FormOptions<Values extends object> = {
 export type FieldOptions = {
   rule?: RuleItem;
 }
+export type Error = {
+  message: string;
+  field: string;
+}
+
+export type ErrorFields = {
+  [field: string]: Error[] | undefined;
+}
 
 export const useForm = <T extends object>({
   defaultValues = {} as T,
@@ -24,6 +32,19 @@ export const useForm = <T extends object>({
   const fieldsRef = ref<{ [key: string]: Set<Ref<HTMLElement | null>> }>({})
   const fieldValues = reactive(defaultValues) as any
 
+  const errorFields = reactive({} as ErrorFields)
+
+  // make errorFields is reactive
+  const clearErrorFields = () => {
+    Object.keys(errorFields).forEach((key) => {
+      delete errorFields[key]
+    })
+  }
+  const setErrorFields = (errors: ErrorFields) => {
+    Object.keys(errors).forEach((key) => {
+      errorFields[key] = errors[key]
+    })
+  }
   const useField = (path: string | (string | number)[], options: FieldOptions = {}) => {
     const pathStr = toPathString(path)
     const fieldRef = ref<HTMLElement | null>(null)
@@ -46,9 +67,9 @@ export const useForm = <T extends object>({
     return reactive({
       ref: getRef,
       value,
+      errors: computed(() => errorFields[pathStr]),
     })
   }
-
   const getFieldValues = () => Object.keys(fieldsRef.value).reduce((acc, path) => {
     // only return fields that exit on page
     const value = get(fieldValues, path)
@@ -62,10 +83,25 @@ export const useForm = <T extends object>({
     }
     return acc
   }, {})
-  const validate = () => validator.validate(getFieldValues())
+  const validateFields = async () => {
+    try {
+      await validator.validate(getFieldValues())
+      clearErrorFields()
+    } catch (error) {
+      setErrorFields(error)
+      throw error
+    }
+  }
 
-  const validateField = (path: any) => validator.validateField(path, get(fieldValues, path))
-
+  const validateField = async (path: any) => {
+    try {
+      await validator.validateField(path, get(fieldValues, path))
+      delete errorFields[path]
+    } catch (error) {
+      errorFields[path] = error
+      throw error
+    }
+  }
   return reactive({
     values: fieldValues as T,
     useField,
@@ -76,8 +112,8 @@ export const useForm = <T extends object>({
       set(fieldValues, path, value)
     },
     getFieldValues,
-    validate,
+    validateFields,
     validateField,
-    // TODO return errors notice that error of every field could be an array
+    errorFields,
   })
 }

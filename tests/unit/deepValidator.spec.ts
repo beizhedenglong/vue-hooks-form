@@ -26,10 +26,8 @@ describe('DeepValidator', () => {
       type: 'email',
     })
 
-    validator.validateField('email', { email: 'xxx' }).catch(({ errors, fields }) => {
-      console.log(errors, fields)
-      expect(fields.email).toBeDefined()
-      expect(fields.name).toBeUndefined()
+    validator.validateField('email', { email: 'xxx' }).catch((errors) => {
+      expect(errors).toBeDefined()
       done()
     })
   })
@@ -56,8 +54,8 @@ describe('DeepValidator', () => {
       person: {
         friends: [],
       },
-    }).catch(({ fields }) => {
-      expect(fields['person.friends']).toBeDefined()
+    }).catch((errorFields) => {
+      expect(errorFields['person.friends']).toBeDefined()
       done()
     })
   })

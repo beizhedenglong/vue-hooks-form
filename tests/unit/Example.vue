@@ -31,7 +31,7 @@ export default defineComponent({
   setup(props) {
     const {
       values, useField, getFieldValues,
-      validate, validateField,
+      validateFields, validateField,
     } = useForm({ defaultValues: props.defaultValues })
     const state = reactive({ visible: true })
 
@@ -57,7 +57,7 @@ export default defineComponent({
       nameField,
       submit: async () => {
         try {
-          await validate()
+          await validateFields()
         } catch ({ errors, fields }) {
           console.log(errors, fields)
         }
@@ -65,7 +65,7 @@ export default defineComponent({
       ageField,
       emailField,
       state,
-      validate,
+      validateFields,
       validateField,
       getFieldValues,
     }

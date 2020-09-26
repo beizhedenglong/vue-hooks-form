@@ -1,22 +1,25 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    {{values.name}}
-    {{nameField.value}}
+    <div>{{ errorFields }}</div>
+    <div>{{values}}</div>
     <input
       type="text"
       :ref="nameField.ref"
       v-model="nameField.value"
       v-if="state.visible"
-    >
-    <TestInput v-if="state.visible" v-model="ageField.value" :ref="ageField.ref"></TestInput>
-    <input
-      type="email"
-      v-model="emailField.value" :ref="emailField.ref"
-    >
-    <button @click="submit">
-      submit
-    </button>
+    />
+    <br>
+    <TestInput
+      v-if="state.visible"
+      v-model="ageField.value"
+      :ref="ageField.ref"
+    ></TestInput>
+    {{ageField.errors}}
+    <br>
+    <input type="email" v-model="emailField.value" :ref="emailField.ref" />
+    {{emailField.errors}}
+    <br>
+    <button @click="submit">submit</button>
   </div>
 </template>
 
@@ -37,8 +40,12 @@ export default defineComponent({
   },
   setup() {
     const {
-      values, useField, getFieldValues,
-      validate, validateField,
+      values,
+      useField,
+      getFieldValues,
+      errorFields,
+      validateFields,
+      validateField,
     } = useForm({
       defaultValues: {
         name: 'wang',
@@ -56,6 +63,7 @@ export default defineComponent({
     const ageField = useField('age', {
       rule: {
         type: 'number',
+        required: true,
         validator: (rule, value, cb) => {
           if (value < 10) {
             cb('age less than ten!')
@@ -71,14 +79,14 @@ export default defineComponent({
     })
 
     return {
+      errorFields,
       values,
       nameField,
       submit: async () => {
-        console.log(values, getFieldValues())
         try {
-          await validate()
-        } catch ({ errors, fields }) {
-          console.log(errors, fields)
+          await validateFields()
+        } catch (errors) {
+          console.log('outer', errors)
         }
       },
       ageField,

@@ -36,11 +36,9 @@ describe('useFrom', () => {
     await input.setValue('Victor')
     expect(instance.values.name).toEqual('Victor')
     try {
-      instance.validate()
-    } catch ({ errors, field }) {
-      console.log('errors', errors, field)
-      expect(field.age).toBeDefined()
+      instance.validateFields()
+    } catch (errorFields) {
+      expect(errorFields.age).toBeDefined()
     }
-    // expect(wrapper.text()).toMatch(msg)
   })
 })

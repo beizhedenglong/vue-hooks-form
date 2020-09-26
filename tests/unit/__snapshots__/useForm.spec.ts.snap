@@ -96,6 +96,7 @@ VueWrapper {
   "componentVM": Object {
     "__emitted": Object {},
     "ageField": Object {
+      "errors": undefined,
       "ref": [Function],
       "value": 1,
     },
@@ -109,11 +110,13 @@ VueWrapper {
       "notInclude": "notInclude",
     },
     "emailField": Object {
+      "errors": undefined,
       "ref": [Function],
       "value": "hello@example.com",
     },
     "getFieldValues": [Function],
     "nameField": Object {
+      "errors": undefined,
       "ref": [Function],
       "value": "wang",
     },
@@ -121,8 +124,8 @@ VueWrapper {
       "visible": true,
     },
     "submit": [Function],
-    "validate": [Function],
     "validateField": [Function],
+    "validateFields": [Function],
     "values": Object {
       "age": 1,
       "info": Object {
