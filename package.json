@@ -3,11 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve example/main.ts",
+    "start": "vue-cli-service serve example/main.ts",
     "build": "vue-cli-service build",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "async-validator": "^3.4.0",
@@ -16,7 +14,9 @@
     "lodash.merge": "^4.6.2",
     "lodash.set": "^4.3.2",
     "lodash.setwith": "^4.3.2",
-    "lodash.topath": "^4.5.2",
+    "lodash.topath": "^4.5.2"
+  },
+  "peerDependencies": {
     "vue": "^3.0.0"
   },
   "devDependencies": {
@@ -41,7 +41,9 @@
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.0.0-0",
+    "materialize-css": "^1.0.0-rc.2",
     "typescript": "~3.9.3",
+    "vue": "^3.0.1",
     "vue-jest": "^5.0.0-0"
   }
 }

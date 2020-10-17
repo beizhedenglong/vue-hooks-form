@@ -19,6 +19,14 @@ const setRule = (rules: Rules, path: any, rule: RuleItem) => {
     return pathValue
   })
 }
+
+export type Errors = {
+  [key: string]: {
+    message: string;
+    field: string;
+  };
+}
+
 const DeepValidator = (rules: Rules = {}) => {
   const registerRule = (path: any, rule: RuleItem) => {
     setRule(rules, path, rule)
@@ -27,7 +35,11 @@ const DeepValidator = (rules: Rules = {}) => {
     try {
       return await new Validator(rules).validate(data)
     } catch ({ errors, fields }) {
-      throw fields
+      const errorObject: Errors = Object.keys(fields).reduce((acc, key) => {
+        acc[key] = get(fields, [key, 0])
+        return acc
+      }, {} as Errors)
+      throw errorObject
     }
   }
   return {
@@ -41,7 +53,7 @@ const DeepValidator = (rules: Rules = {}) => {
           set({}, path, value),
         )
       } catch ({ fields }) {
-        throw fields[path]
+        throw get(fields, [path, 0])
       }
     },
   }

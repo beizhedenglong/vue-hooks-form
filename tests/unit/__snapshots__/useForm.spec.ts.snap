@@ -4,15 +4,11 @@ exports[`useFrom renders props.msg when passed 1`] = `
 VueWrapper {
   "__app": Object {
     "_component": Object {
-      "__emits": Object {
-        "0": Object {},
-      },
-      "__props": Object {
-        "0": Array [
-          Object {},
-          Array [],
-        ],
-      },
+      "__emits": Object {},
+      "__props": Array [
+        Object {},
+        Array [],
+      ],
       "name": "VTU_ROOT",
       "render": [Function],
     },
@@ -51,21 +47,13 @@ VueWrapper {
       "directives": Object {},
       "mixins": Array [
         Object {
-          "__emits": Object {
-            "0": null,
-          },
-          "__props": Object {
-            "0": Array [],
-          },
+          "__emits": null,
+          "__props": Array [],
           "beforeCreate": [Function],
         },
         Object {
-          "__emits": Object {
-            "0": null,
-          },
-          "__props": Object {
-            "0": Array [],
-          },
+          "__emits": null,
+          "__props": Array [],
           "beforeCreate": [Function],
         },
       ],
@@ -90,13 +78,13 @@ VueWrapper {
     "provide": [Function],
     "unmount": [Function],
     "use": [Function],
-    "version": "3.0.0",
+    "version": "3.0.1",
   },
   "__setProps": [Function],
   "componentVM": Object {
     "__emitted": Object {},
     "ageField": Object {
-      "errors": undefined,
+      "error": undefined,
       "ref": [Function],
       "value": 1,
     },
@@ -110,13 +98,13 @@ VueWrapper {
       "notInclude": "notInclude",
     },
     "emailField": Object {
-      "errors": undefined,
+      "error": undefined,
       "ref": [Function],
       "value": "hello@example.com",
     },
     "getFieldValues": [Function],
     "nameField": Object {
-      "errors": undefined,
+      "error": undefined,
       "ref": [Function],
       "value": "wang",
     },
