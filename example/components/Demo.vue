@@ -60,9 +60,6 @@ export default defineComponent({
   components: {
     Input,
   },
-  props: {
-    modelValue: String,
-  },
   setup() {
     const {
       useField,

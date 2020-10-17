@@ -1,12 +1,3 @@
-# Vue Hooks Form
-
-## Installation
-
-```
-  yarn add vue-hooks-form
-```
-## Usage
-```vue
 <template>
   <Input
     label="Username"
@@ -97,9 +88,3 @@ export default defineComponent({
   },
 })
 </script>
-```
-## Live Demo
-[![Edit Vue Hooks Form Demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vue-hooks-form-demo-lqtp0?fontsize=14&hidenavigation=1&theme=dark)
-
-
-## API
