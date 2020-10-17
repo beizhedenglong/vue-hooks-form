@@ -1,5 +1,5 @@
 import { RuleItem, Rules } from 'async-validator'
-import DeepValidator from '../../src/DeepValidator'
+import DeepValidator from '../../src/deepValidator'
 
 describe('DeepValidator', () => {
   const rules: Rules = {

@@ -2,7 +2,7 @@ import {
   reactive, computed, ref, Ref, watch,
 } from 'vue'
 import { RuleItem } from 'async-validator'
-import DeepValidator from './DeepValidator'
+import DeepValidator from './deepValidator'
 import {
   isAllUnmounted, get, set, toPathString,
 } from './utils'
