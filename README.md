@@ -1,5 +1,5 @@
 # Vue Hooks Form
-Build forms with Vue composition API.
+Build forms with Vue composition API: https://beizhedenglong.github.io/vue-hooks-form/.
 
 ## Installation
 
