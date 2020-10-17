@@ -1,4 +1,5 @@
 # Vue Hooks Form
+Build forms with Vue composition API.
 
 ## Installation
 
