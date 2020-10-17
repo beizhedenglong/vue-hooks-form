@@ -30,10 +30,5 @@ export default defineComponent({
     errorMessage: String,
     isDanger: Boolean,
   },
-  computed: {
-    iconClass(): string {
-      return this.icon ? `fas ${this.icon}` : ''
-    },
-  },
 })
 </script>
