@@ -65,4 +65,22 @@ export default defineComponent({
 [![Edit Vue Hooks Form Demo](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/vue-hooks-form-demo-lqtp0?fontsize=14&hidenavigation=1&theme=dark)
 
 
-## API
+## API(TODO)
+
+### `useForm`
+```js
+const {
+  values,
+  getFieldValues,
+  errors,
+  validateFields,
+  validateField,
+  get,
+  set,
+  useField,
+} = useForm({
+  defaultValues: {},
+  shouldUnregister: true,
+  validateMode: 'change',
+})
+```
