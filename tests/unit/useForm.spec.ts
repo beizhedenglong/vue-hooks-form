@@ -37,8 +37,8 @@ describe('useFrom', () => {
     expect(instance.values.name).toEqual('Victor')
     try {
       instance.validateFields()
-    } catch (errorFields) {
-      expect(errorFields.age).toBeDefined()
+    } catch (errors) {
+      expect(errors.age).toBeDefined()
     }
   })
 })

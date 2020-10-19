@@ -23,7 +23,7 @@ export type Error = {
   field: string;
 }
 
-export type ErrorFields = {
+export type Errors = {
   [field: string]: Error[] | undefined;
 }
 
@@ -36,18 +36,18 @@ export const useForm = <T extends object>({
   const fieldsRef = ref<{ [key: string]: Set<Ref<HTMLElement | null>> }>({})
   const fieldValues = reactive(defaultValues) as any
 
-  const errorFields = reactive({} as ErrorFields)
+  const errors = reactive({} as Errors)
 
-  // make errorFields is reactive
-  const clearErrorFields = () => {
-    Object.keys(errorFields).forEach((key) => {
-      delete errorFields[key]
+  // make errors is reactive
+  const clearErrors = () => {
+    Object.keys(errors).forEach((key) => {
+      delete errors[key]
     })
   }
-  const setErrorFields = (errors: ErrorFields) => {
-    clearErrorFields()
-    Object.keys(errors).forEach((key) => {
-      errorFields[key] = errors[key]
+  const setErrors = (newErrors: Errors) => {
+    clearErrors()
+    Object.keys(newErrors).forEach((key) => {
+      errors[key] = newErrors[key]
     })
   }
 
@@ -67,9 +67,9 @@ export const useForm = <T extends object>({
   const validateFields = async () => {
     try {
       await validator.validate(getFieldValues())
-      clearErrorFields()
+      clearErrors()
     } catch (error) {
-      setErrorFields(error)
+      setErrors(error)
       throw error
     }
   }
@@ -77,9 +77,9 @@ export const useForm = <T extends object>({
   const validateField = async (path: any) => {
     try {
       await validator.validateField(path, get(fieldValues, path))
-      delete errorFields[path]
+      delete errors[path]
     } catch (error) {
-      errorFields[path] = error
+      errors[path] = error
       throw error
     }
   }
@@ -115,7 +115,7 @@ export const useForm = <T extends object>({
     return reactive({
       ref: getRef,
       value,
-      error: computed(() => errorFields[pathStr]),
+      error: computed(() => errors[pathStr]),
     })
   }
   return reactive({
@@ -130,6 +130,6 @@ export const useForm = <T extends object>({
     getFieldValues,
     validateFields,
     validateField,
-    errorFields,
+    errors,
   })
 }

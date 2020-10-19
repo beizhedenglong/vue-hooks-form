@@ -1,11 +1,17 @@
 # Vue Hooks Form
-Build forms with Vue composition API.
+Building forms with Vue composition API.
 
 ## Installation
 
 ```
   yarn add vue-hooks-form
 ```
+## Features
+- UI decoupling: Since It does not contain any UI code, It can be easily integrate with other UI libraries.
+- Easy to adoptable: Since form state is inherently local and ephemeral, it can be easily adopted.
+- Easy to use.
+- TypeScript support.
+  
 ## Usage
 ```vue
 <template>
@@ -41,7 +47,7 @@ Build forms with Vue composition API.
 <script lang="ts">
 import { defineComponent } from 'vue'
 import Input from './Input.vue'
-import { useForm } from '../../src'
+import { useForm } from 'vue-hooks-form'
 
 export default defineComponent({
   name: 'Demo',

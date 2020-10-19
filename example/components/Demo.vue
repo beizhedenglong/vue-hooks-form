@@ -43,8 +43,8 @@
     </div>
     <div class="column tile">
       <div class="tile is-child box">
-        <h2 class="title">ErrorFields:</h2>
-        <pre>{{ JSON.stringify(errorFields, null, 2) }}</pre>
+        <h2 class="title">Errors:</h2>
+        <pre>{{ JSON.stringify(errors, null, 2) }}</pre>
       </div>
     </div>
   </div>
@@ -64,7 +64,7 @@ export default defineComponent({
     const {
       useField,
       validateFields,
-      errorFields,
+      errors,
       getFieldValues,
       values,
     } = useForm({
@@ -107,7 +107,7 @@ export default defineComponent({
           console.log(error)
         }
       },
-      errorFields,
+      errors,
       values,
     }
   },

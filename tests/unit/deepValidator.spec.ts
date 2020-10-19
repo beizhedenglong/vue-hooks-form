@@ -54,8 +54,8 @@ describe('DeepValidator', () => {
       person: {
         friends: [],
       },
-    }).catch((errorFields) => {
-      expect(errorFields['person.friends']).toBeDefined()
+    }).catch((errors) => {
+      expect(errors['person.friends']).toBeDefined()
       done()
     })
   })
