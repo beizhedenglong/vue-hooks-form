@@ -84,3 +84,12 @@ const {
   validateMode: 'change',
 })
 ```
+
+### `useField`
+```js
+const {
+ ref,
+ value,
+ error
+} = useField(path, options)
+```
