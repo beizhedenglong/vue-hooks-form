@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "source": "src/index.ts",
   "main": "dist/index.js",
-  "types": "dis/src/index.d.ts",
+  "types": "dist/src/index.d.ts",
   "scripts": {
     "start": "vue-cli-service serve example/main.ts",
     "build": "rollup -c",
