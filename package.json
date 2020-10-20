@@ -2,10 +2,11 @@
   "name": "vue-hooks-form",
   "version": "0.1.1",
   "source": "src/index.ts",
-  "main": "dist/vueHooksLib.umd.min.js",
+  "main": "dist/index.js",
+  "types": "dis/src/index.d.ts",
   "scripts": {
     "start": "vue-cli-service serve example/main.ts",
-    "build": "vue-cli-service build --target lib --name vueHooksLib src/index.ts",
+    "build": "rollup -c",
     "dev": "microbundle watch",
     "build:example": "vue-cli-service build example/main.ts --dest exampleDist",
     "test": "jest --coverage",
@@ -23,6 +24,9 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^15.1.0",
+    "@rollup/plugin-node-resolve": "^9.0.0",
+    "@rollup/plugin-typescript": "^6.0.0",
     "@types/jest": "^24.0.19",
     "@types/lodash.get": "^4.4.6",
     "@types/lodash.merge": "^4.6.6",
@@ -41,13 +45,17 @@
     "@vue/eslint-config-airbnb": "^5.0.2",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
+    "add": "^2.0.6",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "gh-pages": "^3.1.0",
     "materialize-css": "^1.0.0-rc.2",
-    "typescript": "~3.9.3",
+    "rollup": "^2.32.0",
+    "tslib": "^2.0.3",
+    "typescript": "^4.0.3",
     "vue": "^3.0.1",
-    "vue-jest": "^5.0.0-0"
+    "vue-jest": "^5.0.0-0",
+    "yarn": "^1.22.10"
   }
 }
