@@ -1,13 +1,14 @@
 import {
-  reactive, computed, ref, Ref, watch,
+  reactive, computed, ref, Ref, watch, VNode,
 } from 'vue'
 import { RuleItem } from 'async-validator'
 import DeepValidator from './deepValidator'
 import {
   isAllUnmounted, get, set, toPathString,
+  getDOMNode, FieldNode,
 } from './utils'
 
-export type ValidateMode = 'change'
+export type ValidateMode = 'change' | 'focusout'
 
 export type FormOptions<Values extends object> = {
   defaultValues?: Values;
@@ -33,7 +34,7 @@ export const useForm = <T extends object>({
   validateMode = 'change',
 }: FormOptions<T>) => {
   const validator = DeepValidator({})
-  const fieldsRef = ref<{ [key: string]: Set<Ref<HTMLElement | null>> }>({})
+  const fieldsRef = ref<{ [key: string]: Set<Ref<FieldNode>> }>({})
   const fieldValues = reactive(defaultValues) as any
 
   const errors = reactive({} as Errors)
@@ -85,8 +86,16 @@ export const useForm = <T extends object>({
   }
   const useField = (path: string | (string | number)[], options: FieldOptions = {}) => {
     const pathStr = toPathString(path)
-    const fieldRef = ref<HTMLElement | null>(null)
+    const fieldRef = ref<FieldNode>(null)
     const { rule } = options
+    const validateWithoutError = async () => {
+      // ignore validate error
+      try {
+        await validateField(path)
+      } catch (error) {
+        //
+      }
+    }
     if (rule) {
       validator.registerRule(pathStr, rule)
     }
@@ -96,22 +105,40 @@ export const useForm = <T extends object>({
         set(fieldValues, pathStr, newValue)
       },
     })
-    const getRef = (nodeRef: HTMLElement) => {
+    const listener = ref((e: Event) => {
+      validateWithoutError()
+    })
+    const getRef = (nodeRef: FieldNode) => {
+      const domNode = getDOMNode(nodeRef)
+      if (domNode !== null) {
+        if (validateMode === 'focusout') {
+          domNode.addEventListener('focusout', listener.value)
+        }
+      } else {
+        const prevDomNode = getDOMNode(fieldRef.value)
+        if (prevDomNode !== null) {
+          if (validateMode === 'focusout') {
+            prevDomNode.removeEventListener('focusout', listener.value)
+          }
+        }
+      }
       fieldRef.value = nodeRef
       const nodeSet = fieldsRef.value[pathStr] || new Set()
       nodeSet.add(fieldRef)
       fieldsRef.value[pathStr] = nodeSet
+      if (shouldUnregister && isAllUnmounted(nodeSet)) {
+        validator.removeRule(pathStr)
+      }
     }
     watch(value, async () => {
       if (validateMode === 'change') {
-        // ignore validate error
-        try {
-          await validateField(path)
-        } catch (error) {
-          //
-        }
+        validateWithoutError()
       }
     })
+    // can't watch the change of fieldRef
+    // watch(fieldRef, () => {
+    //   console.log('watch', fieldRef)
+    // })
     return reactive({
       ref: getRef,
       value,

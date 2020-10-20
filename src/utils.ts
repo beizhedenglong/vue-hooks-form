@@ -1,4 +1,4 @@
-import { Ref } from 'vue'
+import { Ref, ComponentPublicInstance } from 'vue'
 import _toPath from 'lodash.topath'
 import _get from 'lodash.get'
 import _set from 'lodash.set'
@@ -22,3 +22,11 @@ export const toPathString = (path: any) => toPath(path).join('.')
 export const set = _set
 
 export const get = _get
+
+export type FieldNode = HTMLElement | null | ComponentPublicInstance
+export const getDOMNode = (value: FieldNode) => {
+  if (value === null || value instanceof HTMLElement) {
+    return value
+  }
+  return value.$el as HTMLElement
+}
