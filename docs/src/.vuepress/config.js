@@ -56,8 +56,8 @@ module.exports = {
           collapsable: false,
           children: [
             '',
-            'GetStarted',
-            'Validation'
+            'get-started',
+            'validation'
           ]
         }
       ],

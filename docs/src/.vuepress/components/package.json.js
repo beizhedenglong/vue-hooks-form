@@ -9,7 +9,7 @@ module.exports = {
   "dependencies": {
     "core-js": "^3.6.5",
     "vue": "^3.0.0-0",
-    "vue-hooks-form": "latest",
+    "vue-hooks-form": ">=0.2.0",
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
