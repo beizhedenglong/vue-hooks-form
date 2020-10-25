@@ -11,7 +11,7 @@
     "build:docs": "cd docs && yarn build",
     "build:example": "vue-cli-service build example/main.ts --dest exampleDist",
     "test": "jest --coverage",
-    "gh-pages": "gh-pages -d docs/src/.vuepress/dist"
+    "gh-pages": "yarn build:docs && gh-pages -d docs/src/.vuepress/dist"
   },
   "dependencies": {
     "async-validator": "^3.4.0",

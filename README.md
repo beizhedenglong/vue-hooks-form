@@ -1,6 +1,9 @@
 # Vue Hooks Form
-Building forms with Vue composition API: https://beizhedenglong.github.io/vue-hooks-form/.
+Building forms with Vue composition API.
 >The API is not stable and might change in the future.
+
+## Docs
+Visit https://beizhedenglong.github.io/vue-hooks-form/.
 
 ## Installation
 
@@ -13,7 +16,7 @@ Building forms with Vue composition API: https://beizhedenglong.github.io/vue-ho
 - Easy to use: No fancy stuffs, just reactive values/errors.
 - TypeScript support.
   
-## Usage
+## Quickstart
 ```vue
 <template>
   <form @submit="onSubmit">
@@ -72,6 +75,7 @@ const {
   get,
   set,
   useField,
+  handleSubmit
 } = useForm({
   defaultValues: {},
   shouldUnregister: true,
@@ -84,7 +88,8 @@ const {
 const {
  ref,
  value,
- error
+ error,
+ validate
 } = useField(path, options)
 ```
 
