@@ -64,7 +64,7 @@ export const useForm = <T extends object>({
       return acc
     }
     return acc
-  }, {})
+  }, {} as Partial<T>)
   const validateFields = async () => {
     try {
       await validator.validate(getFieldValues())
@@ -145,6 +145,17 @@ export const useForm = <T extends object>({
       error: computed(() => errors[pathStr]),
     })
   }
+  const handleSubmit = (onSubmit: (fieldValues: Partial<T>) => any) => async (e: Event) => {
+    if (e) {
+      e.preventDefault()
+    }
+    try {
+      await validateFields()
+      onSubmit(getFieldValues())
+    } catch (error) {
+      //
+    }
+  }
   return reactive({
     values: fieldValues as T,
     useField,
@@ -158,5 +169,6 @@ export const useForm = <T extends object>({
     validateFields,
     validateField,
     errors,
+    handleSubmit,
   })
 }
