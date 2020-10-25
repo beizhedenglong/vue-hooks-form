@@ -36,7 +36,8 @@ const DeepValidator = (rules: Rules = {}) => {
   }
   const validate = async (data: ValidateSource) => {
     try {
-      return await new Validator(rules).validate(data)
+      await new Validator(rules).validate(data)
+      return undefined
     } catch ({ errors, fields }) {
       const errorObject: Errors = Object.keys(fields).reduce((acc, key) => {
         acc[key] = get(fields, [key, 0])
@@ -53,9 +54,10 @@ const DeepValidator = (rules: Rules = {}) => {
     validateField: async (path: any, value: any) => {
       const fieldRule = setRule({}, path, getRule(rules, path))
       try {
-        return await new Validator(fieldRule).validate(
+        await new Validator(fieldRule).validate(
           set({}, path, value),
         )
+        return undefined
       } catch ({ fields }) {
         throw get(fields, [path, 0])
       }

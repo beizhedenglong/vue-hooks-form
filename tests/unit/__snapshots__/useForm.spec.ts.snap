@@ -86,6 +86,7 @@ VueWrapper {
     "ageField": Object {
       "error": undefined,
       "ref": [Function],
+      "validate": [Function],
       "value": 1,
     },
     "defaultValues": Object {
@@ -100,12 +101,14 @@ VueWrapper {
     "emailField": Object {
       "error": undefined,
       "ref": [Function],
+      "validate": [Function],
       "value": "hello@example.com",
     },
     "getFieldValues": [Function],
     "nameField": Object {
       "error": undefined,
       "ref": [Function],
+      "validate": [Function],
       "value": "wang",
     },
     "state": Object {

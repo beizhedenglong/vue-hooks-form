@@ -1,5 +1,5 @@
 import {
-  reactive, computed, ref, Ref, watch, VNode,
+  reactive, computed, ref, Ref, watch,
 } from 'vue'
 import { RuleItem } from 'async-validator'
 import DeepValidator from './deepValidator'
@@ -8,7 +8,7 @@ import {
   getDOMNode, FieldNode,
 } from './utils'
 
-export type ValidateMode = 'change' | 'focusout'
+export type ValidateMode = 'change' | 'focusout' | 'submit'
 
 export type FormOptions<Values extends object> = {
   defaultValues?: Values;
@@ -67,21 +67,23 @@ export const useForm = <T extends object>({
   }, {} as Partial<T>)
   const validateFields = async () => {
     try {
-      await validator.validate(getFieldValues())
+      const noErrors = await validator.validate(getFieldValues())
       clearErrors()
+      return noErrors
     } catch (error) {
       setErrors(error)
-      throw error
+      return error
     }
   }
 
   const validateField = async (path: any) => {
     try {
-      await validator.validateField(path, get(fieldValues, path))
+      const noError = await validator.validateField(path, get(fieldValues, path))
       delete errors[path]
+      return noError
     } catch (error) {
       errors[path] = error
-      throw error
+      return error
     }
   }
   const useField = (path: string | (string | number)[], options: FieldOptions = {}) => {
@@ -143,6 +145,7 @@ export const useForm = <T extends object>({
       ref: getRef,
       value,
       error: computed(() => errors[pathStr]),
+      validate: () => validateField(pathStr),
     })
   }
   const handleSubmit = (onSubmit: (fieldValues: Partial<T>) => any) => async (e: Event) => {

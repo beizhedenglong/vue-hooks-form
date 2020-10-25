@@ -21,7 +21,7 @@ module.exports = {
   head: [
     ['meta', { name: 'theme-color', content: '#3eaf7c' }],
     ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
-    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }]
+    ['meta', { name: 'apple-mobile-web-app-status-bar-style', content: 'black' }],
   ],
 
   /**
@@ -46,8 +46,8 @@ module.exports = {
       },
       {
         text: 'Github',
-        link: 'https://github.com/beizhedenglong/vue-hooks-form.git'
-      }
+        link: 'https://github.com/beizhedenglong/vue-hooks-form.git',
+      },
     ],
     sidebar: {
       '/guide/': [
@@ -57,20 +57,21 @@ module.exports = {
           children: [
             '',
             'get-started',
-            'validation'
-          ]
-        }
+            'validation',
+            'errors',
+          ],
+        },
       ],
-      "/api/": [
+      '/api/': [
         {
           title: 'API',
           collapsable: false,
           children: [
-            ''
-          ]
-        }
-      ]
-    }
+            '',
+          ],
+        },
+      ],
+    },
   },
 
   /**
@@ -79,5 +80,5 @@ module.exports = {
   plugins: [
     '@vuepress/plugin-back-to-top',
     '@vuepress/plugin-medium-zoom',
-  ]
+  ],
 }
