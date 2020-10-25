@@ -41,6 +41,10 @@ module.exports = {
         link: '/guide/',
       },
       {
+        text: 'API',
+        link: '/api/',
+      },
+      {
         text: 'Github',
         link: 'https://github.com/beizhedenglong/vue-hooks-form.git'
       }
@@ -57,6 +61,15 @@ module.exports = {
           ]
         }
       ],
+      "/api/": [
+        {
+          title: 'API',
+          collapsable: false,
+          children: [
+            ''
+          ]
+        }
+      ]
     }
   },
 

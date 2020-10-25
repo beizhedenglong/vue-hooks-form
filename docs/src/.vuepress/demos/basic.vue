@@ -15,32 +15,27 @@ import { useForm } from "vue-hooks-form";
 
 export default {
   setup() {
-    const { useField, validateFields, getFieldValues } = useForm({
+    const {
+      useField, handleSubmit,
+    } = useForm({
       defaultValues: {},
-    });
-    const username = useField("username", {
+    })
+    const username = useField('username', {
       rule: { required: true },
-    });
-    const password = useField("password", {
+    })
+    const password = useField('password', {
       rule: {
         required: true,
         min: 6,
         max: 10,
       },
-    });
+    })
+    const onSubmit = (data) => console.log(data)
     return {
       username,
       password,
-      async onSubmit(e) {
-        e.preventDefault();
-        try {
-          await validateFields();
-          console.log(getFieldValues());
-        } catch (error) {
-          console.log(error);
-        }
-      },
-    };
+      onSubmit: handleSubmit(onSubmit),
+    }
   },
-};
+}
 </script>
