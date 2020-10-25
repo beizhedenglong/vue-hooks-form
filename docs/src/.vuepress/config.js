@@ -59,6 +59,7 @@ module.exports = {
             'get-started',
             'validation',
             'errors',
+            'nested-data',
           ],
         },
       ],

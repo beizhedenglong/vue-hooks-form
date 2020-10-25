@@ -1,22 +1,22 @@
 module.exports = {
-  "name": "Demo",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+  name: 'Demo',
+  version: '0.1.0',
+  private: true,
+  scripts: {
+    serve: 'vue-cli-service serve',
+    build: 'vue-cli-service build',
   },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "vue": "^3.0.0-0",
-    "vue-hooks-form": ">=0.2.0",
+  dependencies: {
+    'core-js': '^3.6.5',
+    vue: '^3.0.0-0',
+    'vue-hooks-form': '>=0.2.2',
   },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0-0",
+  devDependencies: {
+    '@vue/cli-plugin-babel': '~4.5.0',
+    '@vue/cli-service': '~4.5.0',
+    '@vue/compiler-sfc': '^3.0.0-0',
   },
-  "browserslist": ["> 1%", "last 2 versions", "not dead"],
-  "keywords": [],
-  "description": ""
+  browserslist: ['> 1%', 'last 2 versions', 'not dead'],
+  keywords: [],
+  description: '',
 }

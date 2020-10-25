@@ -1,7 +1,7 @@
 # Errors
-Vue Hooks From supports both form-level and field-level error.
+Vue Hooks From supports both form-level and field-level errors.
 
-## Form-level error
+## Displaying Error Messages
+Your can use form-level `errors` or field-level `useField(path).error`.
 
-
-## Field-level error
+<demo path="displaying-errors.vue"/>

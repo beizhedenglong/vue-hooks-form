@@ -91,12 +91,7 @@ export const useForm = <T extends object>({
     const fieldRef = ref<FieldNode>(null)
     const { rule } = options
     const validateWithoutError = async () => {
-      // ignore validate error
-      try {
-        await validateField(path)
-      } catch (error) {
-        //
-      }
+      await validateField(pathStr)
     }
     if (rule) {
       validator.registerRule(pathStr, rule)
@@ -152,11 +147,10 @@ export const useForm = <T extends object>({
     if (e) {
       e.preventDefault()
     }
-    try {
-      await validateFields()
+
+    const error = await validateFields()
+    if (!error) {
       onSubmit(getFieldValues())
-    } catch (error) {
-      //
     }
   }
   return reactive({

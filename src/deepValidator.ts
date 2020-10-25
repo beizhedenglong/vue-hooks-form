@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import Validator, { RuleItem, Rules, ValidateSource } from 'async-validator'
 import {
   toPath, setWith, get, set,
@@ -12,9 +13,15 @@ const getRule = (rules: Rules, path: any) => {
 
 const setRule = (rules: Rules, path: any, rule: RuleItem | undefined) => {
   const rulePath = getRulePath(path)
+  const pathArr = toPath(path)
+  let index = 0
   return setWith(rules, rulePath, rule, (pathValue, key) => {
     if (key !== 'fields') {
-      return pathValue || ({ type: 'object' } as RuleItem)
+      index += 1
+      const type = /^\d$/.test(pathArr[index]) ? 'array' : 'object'
+      return pathValue || ({
+        type,
+      } as RuleItem)
     }
     return pathValue
   })
