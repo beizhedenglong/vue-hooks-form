@@ -1,0 +1,23 @@
+{
+  "name": "vue-hooks-form",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "authors": {
+    "name": "",
+    "email": ""
+  },
+  "repository": "/vue-hooks-form",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "^1.5.3"
+  },
+  "dependencies": {
+    "raw-loader": "^4.0.2",
+    "vue-hooks-form": "^0.1.3"
+  }
+}

@@ -10,7 +10,7 @@ Building forms with Vue composition API: https://beizhedenglong.github.io/vue-ho
 ## Features
 - UI decoupling: Since It does not contain any UI code, It can be easily integrated with other UI libraries.
 - Easy to adoptable: Since form state is inherently local and ephemeral, it can be easily adopted.
-- Easy to use.
+- Easy to use: No fancy stuffs, just reactive values/errors.
 - TypeScript support.
   
 ## Usage
@@ -93,3 +93,7 @@ const {
  error
 } = useField(path, options)
 ```
+
+
+## Credits
+This project was inspired by [react-hook-form](https://react-hook-form.com/), [formik](https://formik.org), and many other form libraries.

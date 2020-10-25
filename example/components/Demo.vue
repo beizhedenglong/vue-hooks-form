@@ -1,5 +1,4 @@
 <template>
-  <h1 class="title is-1 container">Vue Hooks Form</h1>
   <div class="tile columns">
     <div class="column tile ">
       <div class="tile is-child box">

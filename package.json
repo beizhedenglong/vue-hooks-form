@@ -8,9 +8,10 @@
     "start": "vue-cli-service serve example/main.ts",
     "build": "rollup -c",
     "dev": "microbundle watch",
+    "build:docs": "cd docs && yarn build",
     "build:example": "vue-cli-service build example/main.ts --dest exampleDist",
     "test": "jest --coverage",
-    "gh-pages": "gh-pages -d exampleDist"
+    "gh-pages": "gh-pages -d docs/src/.vuepress/dist"
   },
   "dependencies": {
     "async-validator": "^3.4.0",
@@ -46,6 +47,7 @@
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
     "add": "^2.0.6",
+    "codesandbox": "^2.2.1",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^7.0.0-0",
