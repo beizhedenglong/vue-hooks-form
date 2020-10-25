@@ -17,21 +17,22 @@ Building forms with Vue composition API: https://beizhedenglong.github.io/vue-ho
 ```vue
 <template>
   <form @submit="onSubmit">
+    <label>Username</label>
     <input v-model="username.value" :ref="username.ref" />
-    {{username.error && username.error.message}}
+    <p v-if="username.error">{{ username.error.message }}</p>
+    <label>Password</label>
     <input v-model="password.value" :ref="password.ref" type="password" />
-    {{password.error && password.error.message}}
-    <button type="submit">Submit</button>
+    <p v-if="password.error">{{ password.error.message }}</p>
+    <button type="submit">submit</button>
   </form>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script>
 import { useForm } from 'vue-hooks-form'
 
-export default defineComponent({
+export default {
   setup() {
-    const { useField, validateFields, getFieldValues } = useForm({
+    const { useField, handleSubmit } = useForm({
       defaultValues: {},
     })
     const username = useField('username', {
@@ -44,21 +45,14 @@ export default defineComponent({
         max: 10,
       },
     })
+    const onSubmit = (data) => console.log(data)
     return {
       username,
       password,
-      async onSubmit(e: Event) {
-        e.preventDefault()
-        try {
-          await validateFields()
-          console.log(getFieldValues())
-        } catch (error) {
-          console.log(error)
-        }
-      },
+      onSubmit: handleSubmit(onSubmit),
     }
   },
-})
+}
 </script>
 ```
 ## Live Demo
