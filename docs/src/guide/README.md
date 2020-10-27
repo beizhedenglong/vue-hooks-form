@@ -1,6 +1,6 @@
 # Installation
 
-Install Vue Formulate via your favorite JavaScript package manager.
+Install Vue Hooks Form via your favorite JavaScript package manager.
 
 ## NPM
 ```sh
