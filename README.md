@@ -1,4 +1,4 @@
-# Vue Hooks Form
+# Vue Hooks Form &middot; [![license](https://img.shields.io/github/license/beizhedenglong/vue-hooks-form)](https://github.com/beizhedenglong/vue-hooks-form/blob/master/LICENSE) ![build status](https://github.com/beizhedenglong/vue-hooks-form/workflows/Node.js%20CI/badge.svg)
 Building forms with Vue composition API.
 >The API is not stable and might change in the future.
 
