@@ -9,7 +9,6 @@
     "build": "rollup -c",
     "dev": "microbundle watch",
     "build:docs": "cd docs && yarn build",
-    "build:example": "vue-cli-service build example/main.ts --dest exampleDist",
     "test": "jest --coverage",
     "gh-pages": "yarn build:docs && gh-pages -d docs/src/.vuepress/dist"
   },

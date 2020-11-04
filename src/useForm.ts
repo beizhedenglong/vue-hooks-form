@@ -28,11 +28,12 @@ export type Errors = {
   [field: string]: Error[] | undefined;
 }
 
-export const useForm = <T extends object>({
-  defaultValues = {} as T,
-  shouldUnregister = true,
-  validateMode = 'change',
-}: FormOptions<T>) => {
+export const useForm = <T extends object>(options: FormOptions<T> = {}) => {
+  const {
+    defaultValues = {} as T,
+    shouldUnregister = true,
+    validateMode = 'change',
+  } = options
   const validator = DeepValidator({})
   const fieldsRef = ref<{ [key: string]: Set<Ref<FieldNode>> }>({})
   const fieldValues = reactive(defaultValues) as any
@@ -156,12 +157,8 @@ export const useForm = <T extends object>({
   return reactive({
     values: fieldValues as T,
     useField,
-    get: (path: string, defaultValue: any) => {
-      get(fieldValues, path, defaultValue)
-    },
-    set: (path: string, value: any) => {
-      set(fieldValues, path, value)
-    },
+    get: (path: string, defaultValue?: any) => get(fieldValues, path, defaultValue),
+    set: (path: string, value: any) => set(fieldValues, path, value),
     getFieldValues,
     validateFields,
     validateField,
