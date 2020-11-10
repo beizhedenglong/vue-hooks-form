@@ -17,6 +17,7 @@ module.exports = {
     semi: ["error", "never"],
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off",
     "max-len": "warn"
   },
   overrides: [

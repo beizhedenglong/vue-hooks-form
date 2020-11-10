@@ -17,6 +17,7 @@
     "vuepress": "^1.5.3"
   },
   "dependencies": {
+    "codesandbox": "^2.2.1",
     "raw-loader": "^4.0.2",
     "vue-hooks-form": "^0.1.3"
   }
