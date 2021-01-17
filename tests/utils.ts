@@ -28,6 +28,6 @@ export const renderHook = <Result>(
 
 export const waitForNextUpdate = (timeout?: number) => new Promise((resolve) => {
   setTimeout(() => {
-    resolve()
+    resolve(undefined)
   }, timeout)
 })

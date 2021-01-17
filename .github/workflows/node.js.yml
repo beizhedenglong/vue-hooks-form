@@ -25,6 +25,11 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: yarn install, build, test
+      uses: mattallty/jest-github-action@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        test-command: "yarn test"
       run: |
         yarn 
         yarn build

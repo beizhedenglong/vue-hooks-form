@@ -144,7 +144,7 @@ export const useForm = <T extends object>(options: FormOptions<T> = {}) => {
       validate: () => validateField(pathStr),
     })
   }
-  const handleSubmit = (onSubmit: (fieldValues: Partial<T>) => any) => async (e: Event) => {
+  const handleSubmit = (onSubmit: (fieldValues: Partial<T>) => any) => async (e?: Event) => {
     if (e) {
       e.preventDefault()
     }
