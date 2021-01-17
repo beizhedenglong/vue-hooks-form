@@ -24,10 +24,11 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: yarn install, build
+    - name: yarn install, build, make test-coverage
       run: |
         yarn 
         yarn build
+        make test-coverage
 
     - name: yarn test
       uses: mattallty/jest-github-action@v1.0.3
@@ -35,3 +36,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         test-command: "yarn test"
+
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
