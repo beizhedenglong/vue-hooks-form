@@ -93,6 +93,7 @@ export const useForm = <T extends object>(options: FormOptions<T> = {}) => {
     if (rule) {
       validator.registerRule(pathStr, rule)
     }
+
     const value = computed({
       get: () => get(fieldValues, pathStr),
       set: newValue => {

@@ -6,10 +6,7 @@ module.exports = {
     jest: true,
   },
   extends: '@antfu/eslint-config',
-  plugins: [
-    'markdown',
-    'jest',
-  ],
+  plugins: ['markdown', 'jest'],
   rules: {
     'no-alert': 'off',
     '@typescript-eslint/no-var-requires': 'off',
@@ -27,6 +24,10 @@ module.exports = {
     'vue/no-deprecated-functional-template': 'off',
     'vue/one-component-per-file': 'off',
     'spaced-comment': ['error', 'always', { exceptions: ['@__PURE__'] }],
+    'arrow-parens': 'off',
+    'space-before-function-paren': ['off', 'never'],
+    'curly': ['error', 'all'],
+    'brace-style': ['error', '1tbs'],
   },
   overrides: [
     {
