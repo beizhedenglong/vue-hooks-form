@@ -1,39 +1,34 @@
-import {
-  reactive, computed, ref, Ref, watch,
-} from 'vue'
+import { reactive, computed, ref, Ref, watch } from 'vue'
 import { RuleItem } from 'async-validator'
 import DeepValidator from './deepValidator'
-import {
-  isAllUnmounted, get, set, toPathString,
-  getDOMNode, FieldNode,
-} from './utils'
+import { isAllUnmounted, get, set, toPathString, getDOMNode, FieldNode } from './utils'
+
+export interface aa {
+  aa: string
+}
 
 export type ValidateMode = 'change' | 'focusout' | 'submit'
 
 export type FormOptions<Values extends object> = {
-  defaultValues?: Values;
-  shouldUnregister?: boolean;
-  validateMode?: ValidateMode;
+  defaultValues?: Values
+  shouldUnregister?: boolean
+  validateMode?: ValidateMode
 }
 
 export type FieldOptions = {
-  rule?: RuleItem;
+  rule?: RuleItem
 }
 export type Error = {
-  message: string;
-  field: string;
+  message: string
+  field: string
 }
 
 export type Errors = {
-  [field: string]: Error[] | undefined;
+  [field: string]: Error[] | undefined
 }
 
 export const useForm = <T extends object>(options: FormOptions<T> = {}) => {
-  const {
-    defaultValues = {} as T,
-    shouldUnregister = true,
-    validateMode = 'change',
-  } = options
+  const { defaultValues = {} as T, shouldUnregister = true, validateMode = 'change' } = options
   const validator = DeepValidator({})
   const fieldsRef = ref<{ [key: string]: Set<Ref<FieldNode>> }>({})
   const fieldValues = reactive(defaultValues) as any
@@ -42,30 +37,31 @@ export const useForm = <T extends object>(options: FormOptions<T> = {}) => {
 
   // make errors is reactive
   const clearErrors = () => {
-    Object.keys(errors).forEach((key) => {
+    Object.keys(errors).forEach(key => {
       delete errors[key]
     })
   }
   const setErrors = (newErrors: Errors) => {
     clearErrors()
-    Object.keys(newErrors).forEach((key) => {
+    Object.keys(newErrors).forEach(key => {
       errors[key] = newErrors[key]
     })
   }
 
-  const getFieldValues = () => Object.keys(fieldsRef.value).reduce((acc, path) => {
-    // only return fields that exit on page
-    const value = get(fieldValues, path)
-    if (!shouldUnregister) {
-      set(acc, path, value)
+  const getFieldValues = () =>
+    Object.keys(fieldsRef.value).reduce((acc, path) => {
+      // only return fields that exit on page
+      const value = get(fieldValues, path)
+      if (!shouldUnregister) {
+        set(acc, path, value)
+        return acc
+      }
+      if (!isAllUnmounted(fieldsRef.value[path])) {
+        set(acc, path, value)
+        return acc
+      }
       return acc
-    }
-    if (!isAllUnmounted(fieldsRef.value[path])) {
-      set(acc, path, value)
-      return acc
-    }
-    return acc
-  }, {} as Partial<T>)
+    }, {} as Partial<T>)
   const validateFields = async () => {
     try {
       const noErrors = await validator.validate(getFieldValues())
@@ -99,7 +95,7 @@ export const useForm = <T extends object>(options: FormOptions<T> = {}) => {
     }
     const value = computed({
       get: () => get(fieldValues, pathStr),
-      set: (newValue) => {
+      set: newValue => {
         set(fieldValues, pathStr, newValue)
       },
     })

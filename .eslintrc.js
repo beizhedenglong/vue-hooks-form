@@ -1,34 +1,42 @@
 module.exports = {
   root: true,
   env: {
+    browser: true,
     node: true,
+    jest: true,
   },
-  extends: [
-    'plugin:vue/vue3-essential',
-    '@vue/airbnb',
-    '@vue/typescript/recommended',
+  extends: '@antfu/eslint-config',
+  plugins: [
+    'markdown',
+    'jest',
   ],
-  parserOptions: {
-    ecmaVersion: 2020,
-  },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    semi: ["error", "never"],
-    "@typescript-eslint/ban-ts-ignore": "off",
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-var-requires": "off",
-    "max-len": "warn"
+    'no-alert': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/no-empty-function': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    'unicorn/prevent-abbreviations': 'off',
+    'unicorn/consistent-function-scoping': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/filename-case': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/no-string-refs': 'off',
+    'no-new': 'off',
+    'import/order': 'off',
+    'react/no-unknown-property': 'off',
+    'vue/no-deprecated-functional-template': 'off',
+    'vue/one-component-per-file': 'off',
+    'spaced-comment': ['error', 'always', { exceptions: ['@__PURE__'] }],
   },
   overrides: [
     {
-      files: [
-        '**/__tests__/*.{j,t}s?(x)',
-        '**/tests/unit/**/*.spec.{j,t}s?(x)',
-      ],
-      env: {
-        jest: true,
+      files: ['*.md', 'demo.vue', 'scripts/*.ts'],
+      rules: {
+        'no-console': 'off',
+        'no-undef': 'off',
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
       },
     },
   ],
-};
+}
