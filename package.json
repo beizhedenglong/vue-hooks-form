@@ -10,7 +10,9 @@
     "dev": "microbundle watch",
     "build:docs": "cd docs && yarn build",
     "test": "jest --coverage",
-    "gh-pages": "yarn build:docs && gh-pages -d docs/src/.vuepress/dist"
+    "gh-pages": "yarn build:docs && gh-pages -d docs/src/.vuepress/dist",
+    "prepare": "husky install",
+    "lint-staged": "lint-staged"
   },
   "dependencies": {
     "async-validator": "^3.4.0",
@@ -46,6 +48,7 @@
     "eslint-plugin-jest": "^24.3.6",
     "eslint-plugin-markdown": "^2.2.0",
     "gh-pages": "^3.1.0",
+    "lint-staged": "^11.0.1",
     "materialize-css": "^1.0.0-rc.2",
     "prettier": "^2.3.2",
     "rollup": "^2.32.0",
@@ -53,6 +56,12 @@
     "typescript": "^4.3.5",
     "vue": "^3.0.1",
     "vue-jest": "^5.0.0-0",
-    "yarn": "^1.22.10"
+    "yarn": "^1.22.10",
+    "husky": "^7.0.0"
+  },
+  "lint-staged": {
+    "{src}/**/*.{js,ts,tsx,vue,md}": [
+      "eslint --fix"
+    ]
   }
 }
