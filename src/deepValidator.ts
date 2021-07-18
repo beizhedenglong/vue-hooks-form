@@ -1,8 +1,6 @@
 /* eslint-disable eqeqeq */
 import Validator, { RuleItem, Rules, ValidateSource } from 'async-validator'
-import {
-  toPath, setWith, get, set,
-} from './utils'
+import { toPath, setWith, get, set } from './utils'
 
 const getRulePath = (path: any) => toPath(path).join('.fields.')
 
@@ -19,9 +17,12 @@ const setRule = (rules: Rules, path: any, rule: RuleItem | undefined) => {
     if (key !== 'fields') {
       index += 1
       const type = /^\d$/.test(pathArr[index]) ? 'array' : 'object'
-      return pathValue || ({
-        type,
-      } as RuleItem)
+      return (
+        pathValue ||
+        ({
+          type,
+        } as RuleItem)
+      )
     }
     return pathValue
   })
@@ -29,9 +30,9 @@ const setRule = (rules: Rules, path: any, rule: RuleItem | undefined) => {
 
 export type Errors = {
   [key: string]: {
-    message: string;
-    field: string;
-  };
+    message: string
+    field: string
+  }
 }
 
 const DeepValidator = (rules: Rules = {}) => {
@@ -61,9 +62,7 @@ const DeepValidator = (rules: Rules = {}) => {
     validateField: async (path: any, value: any) => {
       const fieldRule = setRule({}, path, getRule(rules, path))
       try {
-        await new Validator(fieldRule).validate(
-          set({}, path, value),
-        )
+        await new Validator(fieldRule).validate(set({}, path, value))
         return undefined
       } catch ({ fields }) {
         throw get(fields, [path, 0])

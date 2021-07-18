@@ -7,11 +7,6 @@ specifiers:
   '@rollup/plugin-typescript': ^6.0.0
   '@types/jest': ^24.0.19
   '@types/lodash-es': ^4.17.4
-  '@types/lodash.get': ^4.4.6
-  '@types/lodash.merge': ^4.6.6
-  '@types/lodash.set': ^4.3.6
-  '@types/lodash.setwith': ^4.3.6
-  '@types/lodash.topath': ^4.5.6
   '@vue/cli-plugin-babel': ~4.5.0
   '@vue/cli-plugin-e2e-cypress': ~4.5.0
   '@vue/cli-plugin-eslint': ~4.5.0
@@ -30,11 +25,6 @@ specifiers:
   husky: ^7.0.0
   lint-staged: ^11.0.1
   lodash-es: ^4.17.21
-  lodash.get: ^4.4.2
-  lodash.merge: ^4.6.2
-  lodash.set: ^4.3.2
-  lodash.setwith: ^4.3.2
-  lodash.topath: ^4.5.2
   materialize-css: ^1.0.0-rc.2
   prettier: ^2.3.2
   rollup: ^2.32.0
@@ -46,11 +36,6 @@ specifiers:
 dependencies:
   async-validator: registry.nlark.com/async-validator/3.5.2
   lodash-es: 4.17.21
-  lodash.get: 4.4.2
-  lodash.merge: 4.6.2
-  lodash.set: 4.3.2
-  lodash.setwith: registry.nlark.com/lodash.setwith/4.3.2
-  lodash.topath: 4.5.2
 
 devDependencies:
   '@antfu/eslint-config': registry.nlark.com/@antfu/eslint-config/0.7.0_eslint@7.31.0+typescript@4.3.5
@@ -59,11 +44,6 @@ devDependencies:
   '@rollup/plugin-typescript': registry.nlark.com/@rollup/plugin-typescript/6.1.0_06f44e6befb87053f33051ea50470ab3
   '@types/jest': registry.nlark.com/@types/jest/24.9.1
   '@types/lodash-es': registry.nlark.com/@types/lodash-es/4.17.4
-  '@types/lodash.get': registry.nlark.com/@types/lodash.get/4.4.6
-  '@types/lodash.merge': registry.nlark.com/@types/lodash.merge/4.6.6
-  '@types/lodash.set': registry.nlark.com/@types/lodash.set/4.3.6
-  '@types/lodash.setwith': registry.nlark.com/@types/lodash.setwith/4.3.6
-  '@types/lodash.topath': registry.nlark.com/@types/lodash.topath/4.5.6
   '@vue/cli-plugin-babel': registry.nlark.com/@vue/cli-plugin-babel/4.5.13_aee5c6c50358e617dca75f723d0839f1
   '@vue/cli-plugin-e2e-cypress': registry.nlark.com/@vue/cli-plugin-e2e-cypress/4.5.13_0dbd0aefca41a2c6e1c8031422031948
   '@vue/cli-plugin-eslint': registry.nlark.com/@vue/cli-plugin-eslint/4.5.13_0dbd0aefca41a2c6e1c8031422031948
@@ -2083,7 +2063,7 @@ packages:
   /error-ex/1.3.2:
     resolution: {integrity: sha1-tKxAZIEH/c3PriQvQovqihTU8b8=, tarball: error-ex/download/error-ex-1.3.2.tgz}
     dependencies:
-      is-arrayish: registry.nlark.com/is-arrayish/0.2.1
+      is-arrayish: 0.2.1
     dev: true
 
   /error-stack-parser/2.0.6:
@@ -3316,6 +3296,10 @@ packages:
       call-bind: 1.0.2
     dev: true
 
+  /is-arrayish/0.2.1:
+    resolution: {integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=, tarball: is-arrayish/download/is-arrayish-0.2.1.tgz}
+    dev: true
+
   /is-arrayish/0.3.2:
     resolution: {integrity: sha1-RXSirlb3qyBolvtDHq7tBm/fjwM=, tarball: is-arrayish/download/is-arrayish-0.3.2.tgz}
     dev: true
@@ -4031,10 +4015,6 @@ packages:
     resolution: {integrity: sha1-US6b1yHSctlOPTpjZT+hdRZ0HKY=, tarball: lodash.defaultsdeep/download/lodash.defaultsdeep-4.6.1.tgz}
     dev: true
 
-  /lodash.get/4.4.2:
-    resolution: {integrity: sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=, tarball: lodash.get/download/lodash.get-4.4.2.tgz}
-    dev: false
-
   /lodash.isfunction/3.0.9:
     resolution: {integrity: sha1-Bt4l302zJ6yTGYHRvbBn5a9o0FE=, tarball: lodash.isfunction/download/lodash.isfunction-3.0.9.tgz}
     dev: true
@@ -4057,6 +4037,7 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha1-VYqlO0O2YeGSWgr9+japoQhf5Xo=, tarball: lodash.merge/download/lodash.merge-4.6.2.tgz}
+    dev: true
 
   /lodash.once/4.1.1:
     resolution: {integrity: sha1-DdOXEhPHxW34gJd9UEyI+0cal6w=, tarball: lodash.once/download/lodash.once-4.1.1.tgz}
@@ -4066,17 +4047,9 @@ packages:
     resolution: {integrity: sha1-ATDYDoM2MmTUAHTzKbij56ihzEs=, tarball: lodash.partialright/download/lodash.partialright-4.2.1.tgz}
     dev: true
 
-  /lodash.set/4.3.2:
-    resolution: {integrity: sha1-2HV7HagH3eJIFrDWqEvqGnYjCyM=, tarball: lodash.set/download/lodash.set-4.3.2.tgz}
-    dev: false
-
   /lodash.sortby/4.7.0:
     resolution: {integrity: sha1-7dFMgk4sycHgsKG0K7UhBRakJDg=, tarball: lodash.sortby/download/lodash.sortby-4.7.0.tgz}
     dev: true
-
-  /lodash.topath/4.5.2:
-    resolution: {integrity: sha1-NhY1Hzu6YZlKCTGYlmC9AyVP0Ak=, tarball: lodash.topath/download/lodash.topath-4.5.2.tgz}
-    dev: false
 
   /lodash.transform/4.6.0:
     resolution: {integrity: sha1-EjBkIvYzJK7YSD0/ODMrX2cFR6A=, tarball: lodash.transform/download/lodash.transform-4.6.0.tgz}
@@ -4225,14 +4198,6 @@ packages:
     resolution: {integrity: sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=, tarball: media-typer/download/media-typer-0.3.0.tgz}
     engines: {node: '>= 0.6'}
     dev: true
-
-  /memfs/3.2.2:
-    resolution: {integrity: sha1-XeRhOJ1Zbj8j1Iu3wq+2Fh9N9A4=, tarball: memfs/download/memfs-3.2.2.tgz}
-    engines: {node: '>= 4.0.0'}
-    dependencies:
-      fs-monkey: 1.0.3
-    dev: true
-    optional: true
 
   /memory-fs/0.4.1:
     resolution: {integrity: sha1-OpoguEYlI+RHz7x+i7gO1me/xVI=, tarball: memory-fs/download/memory-fs-0.4.1.tgz}
@@ -9170,46 +9135,6 @@ packages:
       '@types/lodash': registry.nlark.com/@types/lodash/4.14.171
     dev: true
 
-  registry.nlark.com/@types/lodash.get/4.4.6:
-    resolution: {integrity: sha1-DHrFYkPa4Pnwmrb3WylHHi53ckA=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/lodash.get/download/@types/lodash.get-4.4.6.tgz}
-    name: '@types/lodash.get'
-    version: 4.4.6
-    dependencies:
-      '@types/lodash': registry.nlark.com/@types/lodash/4.14.171
-    dev: true
-
-  registry.nlark.com/@types/lodash.merge/4.6.6:
-    resolution: {integrity: sha1-uEtAPB0xvELVF3LRzVVX+gCM09Y=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/lodash.merge/download/@types/lodash.merge-4.6.6.tgz}
-    name: '@types/lodash.merge'
-    version: 4.6.6
-    dependencies:
-      '@types/lodash': registry.nlark.com/@types/lodash/4.14.171
-    dev: true
-
-  registry.nlark.com/@types/lodash.set/4.3.6:
-    resolution: {integrity: sha1-M+Y1wjI/hVNZIl32pcjG8fGQgmQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/lodash.set/download/@types/lodash.set-4.3.6.tgz}
-    name: '@types/lodash.set'
-    version: 4.3.6
-    dependencies:
-      '@types/lodash': registry.nlark.com/@types/lodash/4.14.171
-    dev: true
-
-  registry.nlark.com/@types/lodash.setwith/4.3.6:
-    resolution: {integrity: sha1-jtJIKD9VCHv42kUMI/PIfQPJDnY=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/lodash.setwith/download/@types/lodash.setwith-4.3.6.tgz}
-    name: '@types/lodash.setwith'
-    version: 4.3.6
-    dependencies:
-      '@types/lodash': registry.nlark.com/@types/lodash/4.14.171
-    dev: true
-
-  registry.nlark.com/@types/lodash.topath/4.5.6:
-    resolution: {integrity: sha1-Sw6pE2r+3hZ+DL/HSrt9lfXcE+E=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/lodash.topath/download/@types/lodash.topath-4.5.6.tgz}
-    name: '@types/lodash.topath'
-    version: 4.5.6
-    dependencies:
-      '@types/lodash': registry.nlark.com/@types/lodash/4.14.171
-    dev: true
-
   registry.nlark.com/@types/lodash/4.14.171:
     resolution: {integrity: sha1-8Bs6X+NJnjS2IsNipGpgn9sjVzs=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/lodash/download/@types/lodash-4.14.171.tgz}
     name: '@types/lodash'
@@ -11664,7 +11589,7 @@ packages:
       cosmiconfig: 6.0.0
       deepmerge: 4.2.2
       fs-extra: registry.nlark.com/fs-extra/9.1.0
-      memfs: 3.2.2
+      memfs: registry.nlark.com/memfs/3.2.2
       minimatch: 3.0.4
       schema-utils: registry.nlark.com/schema-utils/2.7.0
       semver: 7.3.5
@@ -12089,12 +12014,6 @@ packages:
     name: ipaddr.js
     version: 1.9.1
     engines: {node: '>= 0.10'}
-    dev: true
-
-  registry.nlark.com/is-arrayish/0.2.1:
-    resolution: {integrity: sha1-d8mYQFJ6qOyxqLppe4BkWnqSap0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/is-arrayish/download/is-arrayish-0.2.1.tgz}
-    name: is-arrayish
-    version: 0.2.1
     dev: true
 
   registry.nlark.com/is-bigint/1.0.2:
@@ -12819,12 +12738,6 @@ packages:
     version: 4.5.2
     dev: true
 
-  registry.nlark.com/lodash.setwith/4.3.2:
-    resolution: {integrity: sha1-G8wFfmLZD1prm5Rwriq52J7djm8=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/lodash.setwith/download/lodash.setwith-4.3.2.tgz}
-    name: lodash.setwith
-    version: 4.3.2
-    dev: false
-
   registry.nlark.com/lodash.uniq/4.5.0:
     resolution: {integrity: sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/lodash.uniq/download/lodash.uniq-4.5.0.tgz}
     name: lodash.uniq
@@ -12873,6 +12786,16 @@ packages:
     name: mdn-data
     version: 2.0.4
     dev: true
+
+  registry.nlark.com/memfs/3.2.2:
+    resolution: {integrity: sha1-XeRhOJ1Zbj8j1Iu3wq+2Fh9N9A4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/memfs/download/memfs-3.2.2.tgz?cache=0&sync_timestamp=1619007936906&other_urls=https%3A%2F%2Fregistry.nlark.com%2Fmemfs%2Fdownload%2Fmemfs-3.2.2.tgz}
+    name: memfs
+    version: 3.2.2
+    engines: {node: '>= 4.0.0'}
+    dependencies:
+      fs-monkey: 1.0.3
+    dev: true
+    optional: true
 
   registry.nlark.com/micromark/2.11.4:
     resolution: {integrity: sha1-0TQ2E47qgmOD6CJEnJpcUO5EZlo=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/micromark/download/micromark-2.11.4.tgz}

@@ -17,12 +17,7 @@
   },
   "dependencies": {
     "async-validator": "^3.4.0",
-    "lodash-es": "^4.17.21",
-    "lodash.get": "^4.4.2",
-    "lodash.merge": "^4.6.2",
-    "lodash.set": "^4.3.2",
-    "lodash.setwith": "^4.3.2",
-    "lodash.topath": "^4.5.2"
+    "lodash-es": "^4.17.21"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
@@ -34,11 +29,6 @@
     "@rollup/plugin-typescript": "^6.0.0",
     "@types/jest": "^24.0.19",
     "@types/lodash-es": "^4.17.4",
-    "@types/lodash.get": "^4.4.6",
-    "@types/lodash.merge": "^4.6.6",
-    "@types/lodash.set": "^4.3.6",
-    "@types/lodash.setwith": "^4.3.6",
-    "@types/lodash.topath": "^4.5.6",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-e2e-cypress": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",

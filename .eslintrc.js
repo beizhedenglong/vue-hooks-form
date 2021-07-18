@@ -28,6 +28,7 @@ module.exports = {
     'space-before-function-paren': ['off', 'never'],
     'curly': ['error', 'all'],
     'brace-style': ['error', '1tbs'],
+    'operator-linebreak': 'off',
   },
   overrides: [
     {
