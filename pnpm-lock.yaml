@@ -24,6 +24,7 @@ specifiers:
   rollup: ^2.32.0
   tslib: ^2.0.3
   typescript: ^4.3.5
+  vite-tsconfig-paths: ^3.3.13
   vue: ^3.0.1
   vue-jest: ^5.0.0-0
   vue-router: ^4.0.10
@@ -54,6 +55,7 @@ devDependencies:
   rollup: registry.nlark.com/rollup/2.53.2
   tslib: registry.nlark.com/tslib/2.3.0
   typescript: registry.nlark.com/typescript/4.3.5
+  vite-tsconfig-paths: registry.nlark.com/vite-tsconfig-paths/3.3.13
   vue: registry.nlark.com/vue/3.1.5
   vue-jest: registry.nlark.com/vue-jest/5.0.0-alpha.10_typescript@4.3.5+vue@3.1.5
   vue-router: registry.nlark.com/vue-router/4.0.10_vue@3.1.5
@@ -560,8 +562,6 @@ packages:
       eslint-visitor-keys: registry.nlark.com/eslint-visitor-keys/2.1.0
       esquery: 1.4.0
       multimap: registry.nlark.com/multimap/1.1.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   /esprima/4.0.1:
@@ -2210,8 +2210,6 @@ packages:
       eslint-plugin-yml: registry.nlark.com/eslint-plugin-yml/0.9.0_eslint@7.31.0
       jsonc-eslint-parser: registry.nlark.com/jsonc-eslint-parser/1.1.0_eslint@7.31.0
       yaml-eslint-parser: registry.nlark.com/yaml-eslint-parser/0.3.2
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@antfu/eslint-config-react/0.7.0_eslint@7.31.0+typescript@4.3.5:
@@ -2226,7 +2224,6 @@ packages:
       eslint: registry.nlark.com/eslint/7.31.0
       eslint-plugin-react: registry.nlark.com/eslint-plugin-react/7.24.0_eslint@7.31.0
     transitivePeerDependencies:
-      - supports-color
       - typescript
     dev: true
 
@@ -2244,8 +2241,6 @@ packages:
       '@typescript-eslint/parser': registry.nlark.com/@typescript-eslint/parser/4.28.3_eslint@7.31.0+typescript@4.3.5
       eslint: registry.nlark.com/eslint/7.31.0
       typescript: registry.nlark.com/typescript/4.3.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@antfu/eslint-config-vue/0.7.0_eslint@7.31.0+typescript@4.3.5:
@@ -2260,7 +2255,6 @@ packages:
       eslint: registry.nlark.com/eslint/7.31.0
       eslint-plugin-vue: registry.nlark.com/eslint-plugin-vue/7.12.1_eslint@7.31.0
     transitivePeerDependencies:
-      - supports-color
       - typescript
     dev: true
 
@@ -2276,7 +2270,6 @@ packages:
       '@antfu/eslint-config-vue': registry.nlark.com/@antfu/eslint-config-vue/0.7.0_eslint@7.31.0+typescript@4.3.5
       eslint: registry.nlark.com/eslint/7.31.0
     transitivePeerDependencies:
-      - supports-color
       - typescript
     dev: true
 
@@ -2325,8 +2318,6 @@ packages:
       json5: 2.2.0
       semver: 6.3.0
       source-map: 0.5.7
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@babel/eslint-parser/7.14.7_@babel+core@7.14.6+eslint@7.31.0:
@@ -2434,8 +2425,6 @@ packages:
       '@babel/template': registry.nlark.com/@babel/template/7.14.5
       '@babel/traverse': registry.nlark.com/@babel/traverse/7.14.7
       '@babel/types': registry.nlark.com/@babel/types/7.14.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@babel/helper-optimise-call-expression/7.14.5:
@@ -2464,8 +2453,6 @@ packages:
       '@babel/helper-optimise-call-expression': registry.nlark.com/@babel/helper-optimise-call-expression/7.14.5
       '@babel/traverse': registry.nlark.com/@babel/traverse/7.14.7
       '@babel/types': registry.nlark.com/@babel/types/7.14.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@babel/helper-simple-access/7.14.5:
@@ -2509,8 +2496,6 @@ packages:
       '@babel/template': registry.nlark.com/@babel/template/7.14.5
       '@babel/traverse': registry.nlark.com/@babel/traverse/7.14.7
       '@babel/types': registry.nlark.com/@babel/types/7.14.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@babel/highlight/7.14.5:
@@ -2544,8 +2529,6 @@ packages:
       '@babel/helper-plugin-utils': registry.nlark.com/@babel/helper-plugin-utils/7.14.5
       '@babel/helper-simple-access': registry.nlark.com/@babel/helper-simple-access/7.14.5
       babel-plugin-dynamic-import-node: 2.3.3
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@babel/template/7.14.5:
@@ -2574,8 +2557,6 @@ packages:
       '@babel/types': registry.nlark.com/@babel/types/7.14.5
       debug: registry.nlark.com/debug/4.3.2
       globals: registry.nlark.com/globals/11.12.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@babel/types/7.14.5:
@@ -2635,6 +2616,12 @@ packages:
     dev: true
     optional: true
 
+  registry.nlark.com/@cush/relative/1.0.0:
+    resolution: {integrity: sha1-jNF2m/m947sn2sNWsbyUr0D2zBY=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@cush/relative/download/@cush/relative-1.0.0.tgz}
+    name: '@cush/relative'
+    version: 1.0.0
+    dev: true
+
   registry.nlark.com/@eslint/eslintrc/0.4.3:
     resolution: {integrity: sha1-nkKYHvA1vrPdSa3ResuW6P9vOUw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@eslint/eslintrc/download/@eslint/eslintrc-0.4.3.tgz}
     name: '@eslint/eslintrc'
@@ -2650,8 +2637,6 @@ packages:
       js-yaml: 3.14.1
       minimatch: 3.0.4
       strip-json-comments: 3.1.1
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@humanwhocodes/config-array/0.5.0:
@@ -2663,8 +2648,6 @@ packages:
       '@humanwhocodes/object-schema': registry.nlark.com/@humanwhocodes/object-schema/1.2.0
       debug: registry.nlark.com/debug/4.3.2
       minimatch: 3.0.4
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@humanwhocodes/object-schema/1.2.0:
@@ -2934,8 +2917,6 @@ packages:
       semver: 7.3.5
       tsutils: 3.21.0_typescript@4.3.5
       typescript: registry.nlark.com/typescript/4.3.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@typescript-eslint/experimental-utils/4.28.3_eslint@7.31.0+typescript@4.3.5:
@@ -2955,7 +2936,6 @@ packages:
       eslint-scope: 5.1.1
       eslint-utils: registry.nlark.com/eslint-utils/3.0.0_eslint@7.31.0
     transitivePeerDependencies:
-      - supports-color
       - typescript
     dev: true
 
@@ -2978,8 +2958,6 @@ packages:
       debug: registry.nlark.com/debug/4.3.2
       eslint: registry.nlark.com/eslint/7.31.0
       typescript: registry.nlark.com/typescript/4.3.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@typescript-eslint/scope-manager/4.28.3:
@@ -3019,8 +2997,6 @@ packages:
       semver: 7.3.5
       tsutils: 3.21.0_typescript@4.3.5
       typescript: registry.nlark.com/typescript/4.3.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/@typescript-eslint/visitor-keys/4.28.3:
@@ -3385,11 +3361,6 @@ packages:
     name: debug
     version: 4.3.2
     engines: {node: '>=6.0'}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
     dependencies:
       ms: 2.1.2
     dev: true
@@ -3536,7 +3507,6 @@ packages:
       '@typescript-eslint/experimental-utils': registry.nlark.com/@typescript-eslint/experimental-utils/4.28.3_eslint@7.31.0+typescript@4.3.5
       eslint: registry.nlark.com/eslint/7.31.0
     transitivePeerDependencies:
-      - supports-color
       - typescript
     dev: true
 
@@ -3613,8 +3583,6 @@ packages:
       reserved-words: registry.nlark.com/reserved-words/0.1.2
       safe-regex: 2.1.1
       semver: 7.3.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/eslint-plugin-vue/7.12.1_eslint@7.31.0:
@@ -3631,8 +3599,6 @@ packages:
       natural-compare: 1.4.0
       semver: 7.3.5
       vue-eslint-parser: registry.nlark.com/vue-eslint-parser/7.9.0_eslint@7.31.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/eslint-plugin-yml/0.9.0_eslint@7.31.0:
@@ -3648,8 +3614,6 @@ packages:
       lodash: 4.17.21
       natural-compare: 1.4.0
       yaml-eslint-parser: registry.nlark.com/yaml-eslint-parser/0.3.2
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/eslint-utils/2.1.0:
@@ -3742,8 +3706,6 @@ packages:
       table: registry.nlark.com/table/6.7.1
       text-table: 0.2.0
       v8-compile-cache: 2.3.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/espree/6.2.1:
@@ -3880,6 +3842,12 @@ packages:
       is-glob: 4.0.1
     dev: true
 
+  registry.nlark.com/glob-regex/0.3.2:
+    resolution: {integrity: sha1-JzSPL2BkjsMqSlMTcJC5+5NPNCU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/glob-regex/download/glob-regex-0.3.2.tgz}
+    name: glob-regex
+    version: 0.3.2
+    dev: true
+
   registry.nlark.com/glob/7.1.4:
     resolution: {integrity: sha1-qmCKL2xXetNX4a5aXCbZqNGWklU=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/glob/download/glob-7.1.4.tgz}
     name: glob
@@ -3947,6 +3915,12 @@ packages:
       object-assign: 4.1.1
       pify: 2.3.0
       pinkie-promise: 2.0.1
+    dev: true
+
+  registry.nlark.com/globrex/0.1.2:
+    resolution: {integrity: sha1-3V2eyCYjJzDNZ5Ol4zqTApheYJg=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/globrex/download/globrex-0.1.2.tgz}
+    name: globrex
+    version: 0.1.2
     dev: true
 
   registry.nlark.com/homedir/0.6.0:
@@ -4214,8 +4188,6 @@ packages:
       please-upgrade-node: 3.2.0
       string-argv: 0.3.1
       stringify-object: 3.3.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/listr2/3.10.0_enquirer@2.3.6:
@@ -4420,6 +4392,17 @@ packages:
     version: 16.13.1
     dev: true
 
+  registry.nlark.com/recrawl-sync/2.2.1:
+    resolution: {integrity: sha1-ywLICEwis86hA6v0a7iHNAdu1rs=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/recrawl-sync/download/recrawl-sync-2.2.1.tgz}
+    name: recrawl-sync
+    version: 2.2.1
+    dependencies:
+      '@cush/relative': registry.nlark.com/@cush/relative/1.0.0
+      glob-regex: registry.nlark.com/glob-regex/0.3.2
+      slash: 3.0.0
+      tslib: registry.nlark.com/tslib/1.14.1
+    dev: true
+
   registry.nlark.com/regexpp/3.2.0:
     resolution: {integrity: sha1-BCWido2PI7rXDKS5BGH6LxIT4bI=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/regexpp/download/regexpp-3.2.0.tgz}
     name: regexpp
@@ -4622,6 +4605,19 @@ packages:
     hasBin: true
     dev: true
 
+  registry.nlark.com/vite-tsconfig-paths/3.3.13:
+    resolution: {integrity: sha1-qeYKo3WXmfMDVYHejkuwAhXwOfY=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/vite-tsconfig-paths/download/vite-tsconfig-paths-3.3.13.tgz}
+    name: vite-tsconfig-paths
+    version: 3.3.13
+    peerDependencies:
+      vite: '>2.0.0-0'
+    dependencies:
+      debug: registry.nlark.com/debug/4.3.2
+      globrex: registry.nlark.com/globrex/0.1.2
+      recrawl-sync: registry.nlark.com/recrawl-sync/2.2.1
+      tsconfig-paths: registry.nlark.com/tsconfig-paths/3.10.1
+    dev: true
+
   registry.nlark.com/vue-eslint-parser/7.9.0_eslint@7.31.0:
     resolution: {integrity: sha1-Xu7ccfIuvHsYuVfRqxcazymkHmQ=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/vue-eslint-parser/download/vue-eslint-parser-7.9.0.tgz}
     id: registry.nlark.com/vue-eslint-parser/7.9.0
@@ -4639,8 +4635,6 @@ packages:
       esquery: 1.4.0
       lodash: 4.17.21
       semver: 6.3.0
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/vue-jest/5.0.0-alpha.10_typescript@4.3.5+vue@3.1.5:
@@ -4669,8 +4663,6 @@ packages:
       tsconfig: registry.nlark.com/tsconfig/7.0.0
       typescript: registry.nlark.com/typescript/4.3.5
       vue: registry.nlark.com/vue/3.1.5
-    transitivePeerDependencies:
-      - supports-color
     dev: true
 
   registry.nlark.com/vue-router/4.0.10_vue@3.1.5:

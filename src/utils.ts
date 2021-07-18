@@ -1,4 +1,4 @@
-import { Ref, ComponentPublicInstance } from 'vue'
+import type { Ref, ComponentPublicInstance } from 'vue'
 import { toPath as _toPath } from 'lodash-es'
 export { get, set, merge, setWith } from 'lodash-es'
 

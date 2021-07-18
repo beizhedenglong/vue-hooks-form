@@ -1,33 +1,10 @@
+import type { FormOptions, FieldOptions } from '@/types/useForm'
 import type { Ref } from 'vue'
 import { reactive, computed, ref, watch } from 'vue'
-import type { RuleItem } from 'async-validator'
-import DeepValidator from './deepValidator'
-import type { FieldNode } from './utils'
-import { isAllUnmounted, get, set, toPathString, getDOMNode } from './utils'
-
-export interface aa {
-  aa: string
-}
-
-export type ValidateMode = 'change' | 'focusout' | 'submit'
-
-export type FormOptions<Values extends object> = {
-  defaultValues?: Values
-  shouldUnregister?: boolean
-  validateMode?: ValidateMode
-}
-
-export type FieldOptions = {
-  rule?: RuleItem
-}
-export type Error = {
-  message: string
-  field: string
-}
-
-export type Errors = {
-  [field: string]: Error[] | undefined
-}
+import type { Errors } from '../deepValidator'
+import DeepValidator from '../deepValidator'
+import type { FieldNode } from '../utils'
+import { isAllUnmounted, get, set, toPathString, getDOMNode } from '../utils'
 
 export const useForm = <T extends object>(options: FormOptions<T> = {}) => {
   const { defaultValues = {} as T, shouldUnregister = true, validateMode = 'change' } = options

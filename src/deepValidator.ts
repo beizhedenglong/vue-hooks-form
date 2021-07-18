@@ -1,5 +1,6 @@
 /* eslint-disable eqeqeq */
-import Validator, { RuleItem, Rules, ValidateSource } from 'async-validator'
+import type { RuleItem, Rules, ValidateSource } from 'async-validator'
+import Validator from 'async-validator'
 import { toPath, setWith, get, set } from './utils'
 
 const getRulePath = (path: any) => toPath(path).join('.fields.')
