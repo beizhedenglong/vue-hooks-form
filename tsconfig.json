@@ -17,8 +17,9 @@
     "skipLibCheck": true,
     "noUnusedLocals": true,
     "paths": {
-      "@/*": ["src/*"]
-    },
+      "@/*": ["src/*"],
+      "@app": ["app/src/*"]
+    }
   },
   "include": [
     "src/**/*.ts",

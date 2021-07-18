@@ -1,7 +1,9 @@
-import { reactive, computed, ref, Ref, watch } from 'vue'
-import { RuleItem } from 'async-validator'
+import type { Ref } from 'vue'
+import { reactive, computed, ref, watch } from 'vue'
+import type { RuleItem } from 'async-validator'
 import DeepValidator from './deepValidator'
-import { isAllUnmounted, get, set, toPathString, getDOMNode, FieldNode } from './utils'
+import type { FieldNode } from './utils'
+import { isAllUnmounted, get, set, toPathString, getDOMNode } from './utils'
 
 export interface aa {
   aa: string

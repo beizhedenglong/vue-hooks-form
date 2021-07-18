@@ -32,6 +32,7 @@ specifiers:
   typescript: ^4.3.5
   vue: ^3.0.1
   vue-jest: ^5.0.0-0
+  vue-router: ^4.0.10
 
 dependencies:
   async-validator: registry.nlark.com/async-validator/3.5.2
@@ -67,6 +68,7 @@ devDependencies:
   typescript: registry.nlark.com/typescript/4.3.5
   vue: registry.nlark.com/vue/3.1.5
   vue-jest: registry.nlark.com/vue-jest/5.0.0-alpha.10_typescript@4.3.5+vue@3.1.5
+  vue-router: registry.nlark.com/vue-router/4.0.10_vue@3.1.5
 
 packages:
 
@@ -5888,7 +5890,7 @@ packages:
     dev: true
 
   /semver/7.3.5:
-    resolution: {integrity: sha1-C2Ich5NI2JmOSw5L6Us/EuYBjvc=, tarball: semver/download/semver-7.3.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsemver%2Fdownload%2Fsemver-7.3.5.tgz}
+    resolution: {integrity: sha1-C2Ich5NI2JmOSw5L6Us/EuYBjvc=, tarball: semver/download/semver-7.3.5.tgz}
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
@@ -9851,6 +9853,12 @@ packages:
       vue-template-es2015-compiler: 1.9.1
     optionalDependencies:
       prettier: registry.nlark.com/prettier/1.19.1
+    dev: true
+
+  registry.nlark.com/@vue/devtools-api/6.0.0-beta.15:
+    resolution: {integrity: sha1-rXyzhOBi8WW8+cg3MhJb/7wq2D0=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@vue/devtools-api/download/@vue/devtools-api-6.0.0-beta.15.tgz}
+    name: '@vue/devtools-api'
+    version: 6.0.0-beta.15
     dev: true
 
   registry.nlark.com/@vue/reactivity/3.1.5:
@@ -14145,6 +14153,18 @@ packages:
       loader-utils: 2.0.0
     dev: true
     optional: true
+
+  registry.nlark.com/vue-router/4.0.10_vue@3.1.5:
+    resolution: {integrity: sha1-7I/aAylJsqMdMnMXD483bobrUqw=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/vue-router/download/vue-router-4.0.10.tgz}
+    id: registry.nlark.com/vue-router/4.0.10
+    name: vue-router
+    version: 4.0.10
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      '@vue/devtools-api': registry.nlark.com/@vue/devtools-api/6.0.0-beta.15
+      vue: registry.nlark.com/vue/3.1.5
+    dev: true
 
   registry.nlark.com/vue/3.1.5:
     resolution: {integrity: sha1-EoebEdBoXuRHjIhpVReZYwpS+f4=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/vue/download/vue-3.1.5.tgz}
