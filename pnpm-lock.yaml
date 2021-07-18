@@ -6,6 +6,7 @@ specifiers:
   '@rollup/plugin-node-resolve': ^9.0.0
   '@rollup/plugin-typescript': ^6.0.0
   '@types/jest': ^24.0.19
+  '@types/lodash-es': ^4.17.4
   '@types/lodash.get': ^4.4.6
   '@types/lodash.merge': ^4.6.6
   '@types/lodash.set': ^4.3.6
@@ -28,6 +29,7 @@ specifiers:
   gh-pages: ^3.1.0
   husky: ^7.0.0
   lint-staged: ^11.0.1
+  lodash-es: ^4.17.21
   lodash.get: ^4.4.2
   lodash.merge: ^4.6.2
   lodash.set: ^4.3.2
@@ -43,6 +45,7 @@ specifiers:
 
 dependencies:
   async-validator: registry.nlark.com/async-validator/3.5.2
+  lodash-es: 4.17.21
   lodash.get: 4.4.2
   lodash.merge: 4.6.2
   lodash.set: 4.3.2
@@ -55,6 +58,7 @@ devDependencies:
   '@rollup/plugin-node-resolve': registry.nlark.com/@rollup/plugin-node-resolve/9.0.0_rollup@2.53.2
   '@rollup/plugin-typescript': registry.nlark.com/@rollup/plugin-typescript/6.1.0_06f44e6befb87053f33051ea50470ab3
   '@types/jest': registry.nlark.com/@types/jest/24.9.1
+  '@types/lodash-es': registry.nlark.com/@types/lodash-es/4.17.4
   '@types/lodash.get': registry.nlark.com/@types/lodash.get/4.4.6
   '@types/lodash.merge': registry.nlark.com/@types/lodash.merge/4.6.6
   '@types/lodash.set': registry.nlark.com/@types/lodash.set/4.3.6
@@ -4006,6 +4010,10 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
+
+  /lodash-es/4.17.21:
+    resolution: {integrity: sha1-Q+YmxG5lkbd1C+srUBFzkMYJ4+4=, tarball: lodash-es/download/lodash-es-4.17.21.tgz}
+    dev: false
 
   /lodash.camelcase/4.3.0:
     resolution: {integrity: sha1-soqmKIorn8ZRA1x3EfZathkDMaY=, tarball: lodash.camelcase/download/lodash.camelcase-4.3.0.tgz}
@@ -9152,6 +9160,14 @@ packages:
     resolution: {integrity: sha1-7fG/Hb9OBEE8qOWxezt9fVS1mBg=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/json-schema/download/@types/json-schema-7.0.8.tgz}
     name: '@types/json-schema'
     version: 7.0.8
+    dev: true
+
+  registry.nlark.com/@types/lodash-es/4.17.4:
+    resolution: {integrity: sha1-suRA0r+Kk1hKn9eYRS7El5hsm5c=, registry: https://registry.npm.taobao.org/, tarball: https://registry.nlark.com/@types/lodash-es/download/@types/lodash-es-4.17.4.tgz}
+    name: '@types/lodash-es'
+    version: 4.17.4
+    dependencies:
+      '@types/lodash': registry.nlark.com/@types/lodash/4.14.171
     dev: true
 
   registry.nlark.com/@types/lodash.get/4.4.6:
