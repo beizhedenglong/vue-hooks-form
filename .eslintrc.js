@@ -29,6 +29,7 @@ module.exports = {
     'curly': ['error', 'all'],
     'brace-style': ['error', '1tbs'],
     'operator-linebreak': 'off',
+    'node/no-callback-literal': 'off',
   },
   overrides: [
     {
