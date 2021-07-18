@@ -33,7 +33,8 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.md', 'demo.vue', 'scripts/*.ts'],
+      files: ['*.md', 'scripts/*.ts'],
+      processor: 'markdown/markdown',
       rules: {
         'no-console': 'off',
         'no-undef': 'off',

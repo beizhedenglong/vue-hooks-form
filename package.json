@@ -6,12 +6,13 @@
   "types": "dist/src/index.d.ts",
   "scripts": {
     "start": "vue-cli-service serve example/main.ts",
+    "start:app": "pnpm -C ./app run dev",
     "build": "rollup -c",
     "dev": "microbundle watch",
     "build:docs": "cd docs && yarn build",
     "test": "jest --coverage",
     "gh-pages": "yarn build:docs && gh-pages -d docs/src/.vuepress/dist",
-    "prepare": "husky install",
+    "husky:prepare": "husky install",
     "lint-staged": "lint-staged",
     "commit": "pnpx cz"
   },
