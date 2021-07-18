@@ -12,7 +12,8 @@
     "test": "jest --coverage",
     "gh-pages": "yarn build:docs && gh-pages -d docs/src/.vuepress/dist",
     "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "commit": "pnpx cz"
   },
   "dependencies": {
     "async-validator": "^3.4.0",
@@ -63,7 +64,7 @@
     "vue-jest": "^5.0.0-0"
   },
   "lint-staged": {
-    "{src}/**/*.{js,ts,tsx,vue,md}": [
+    "*.{js,ts,tsx,vue,md}": [
       "eslint --fix"
     ]
   },
