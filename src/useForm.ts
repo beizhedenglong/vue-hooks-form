@@ -87,6 +87,7 @@ export const useForm = <T extends object>(options: FormOptions<T> = {}) => {
       return error
     }
   }
+  // eslint-disable-next-line no-shadow
   const useField = (path: string | (string | number)[], options: FieldOptions = {}) => {
     const pathStr = toPathString(path)
     const fieldRef = ref<FieldNode>(null)
