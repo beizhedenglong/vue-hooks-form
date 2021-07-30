@@ -33,6 +33,7 @@ export default {
       return
     }
     if (this.path) {
+      // eslint-disable-next-line import/no-dynamic-require
       const code = require(`!!raw-loader!../demos/${this.path}`).default
       const html = require('!!raw-loader!./index.html').default
       const main = require('!!raw-loader!./main.js').default

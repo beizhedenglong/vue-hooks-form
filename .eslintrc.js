@@ -18,7 +18,9 @@ module.exports = {
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-var-requires": "off",
-    "max-len": "warn"
+    "max-len": "warn",
+    "global-require": "off",
+    "import/no-webpack-loader-syntax": "off"
   },
   overrides: [
     {
