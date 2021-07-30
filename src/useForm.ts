@@ -107,7 +107,7 @@ export const useForm = <T extends object>(options: FormOptions<T> = {}) => {
     const listener = ref((e: Event) => {
       validateWithoutError()
     })
-    const getRef = (nodeRef: FieldNode) => {
+    const getRef = (nodeRef: FieldNode): void => {
       const domNode = getDOMNode(nodeRef)
       if (domNode !== null) {
         if (validateMode === 'focusout') {
