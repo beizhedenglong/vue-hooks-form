@@ -1,4 +1,4 @@
-import { Ref, ComponentPublicInstance } from 'vue'
+import { Ref, ComponentPublicInstance } from 'vue-demi'
 import _toPath from 'lodash.topath'
 import _get from 'lodash.get'
 import _set from 'lodash.set'

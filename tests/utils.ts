@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { mount } from '@vue/test-utils'
-import { defineComponent } from 'vue'
+import { defineComponent } from 'vue-demi'
 
 export type RenderHookResult<T> = {
   result?: T;
