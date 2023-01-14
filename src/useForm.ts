@@ -1,6 +1,6 @@
 import {
   reactive, computed, ref, Ref, watch,
-} from 'vue'
+} from 'vue-demi'
 import { RuleItem } from 'async-validator'
 import DeepValidator from './deepValidator'
 import {

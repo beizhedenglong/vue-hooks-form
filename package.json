@@ -18,10 +18,17 @@
     "lodash.merge": "^4.6.2",
     "lodash.set": "^4.3.2",
     "lodash.setwith": "^4.3.2",
-    "lodash.topath": "^4.5.2"
+    "lodash.topath": "^4.5.2",
+    "vue-demi": "^0.13.11"
   },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "@vue/composition-api": "^1.0.0-rc.1",
+    "vue": "^2.0.0 || >=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@vue/composition-api": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^15.1.0",
