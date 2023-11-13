@@ -23,10 +23,10 @@ export const set = _set
 
 export const get = _get
 
-export type FieldNode = HTMLElement | null | ComponentPublicInstance
+export type FieldNode = Element | null | ComponentPublicInstance
 export const getDOMNode = (value: FieldNode) => {
-  if (value === null || value instanceof HTMLElement) {
+  if (value === null || value instanceof Element) {
     return value
   }
-  return value.$el as HTMLElement
+  return value.$el as Element
 }
